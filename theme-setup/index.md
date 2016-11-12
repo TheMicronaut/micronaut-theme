@@ -489,6 +489,17 @@ We have successfully integrated  [instafeed.js](http://instafeedjs.com/){:target
 ##### Alternative list of posts
 This modified theme supports an alternative layout for displaying post lists. Here is a live [demo](/newindex){:target="_blank"}. At the moment of writing, this feature is under development.
 
+##### Chat via Tawkto
+It is possible to enable a chat plugin on certain posts or pages. [Tawkto](https://www.tawk.to/){:target="_blank"} is used here as a messaging app. By default, the chat plugin is disabled in all posts. In order to enable it, the following yaml entry needs to be added in the front-matter section of the post or page for which you need the plugin:
+
+```yaml
+---
+enable_chat: true
+---
+```
+
+Needless to say that in order to use the plugin, you need to specify your Tawkto siteID in the `_config.yml` file; the latter implies that you need a Tawkto account (which, by the way is free of charge). 
+
 ---
 
 ## Further Customization
