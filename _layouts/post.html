@@ -1,0 +1,74 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+{% include head.html %}
+</head>
+<body id="post">
+{% include next-previous-post.html %}
+
+{% include navigation.html %}
+
+<div id="main" role="main">
+  <article class="hentry">
+    {% if page.image.feature %}
+        <img src="{{ site.url }}/images/{{ page.image.feature }}" class="entry-feature-image" alt="{{ page.title }}" {% if site.logo == null %}style="margin-top:0;"{% endif %}>
+            {% if page.image.credit %}
+            <p class="image-credit"><a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></p>
+            {% endif %}
+    {% endif %}
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <ul class="entry-tags">
+         {% if page.tags %}<i class="fa fa-tags"></i>&nbsp;{% endif %}{% for tag in page.tags %}<li><a href="{{ site.url }}/tags/#{{ tag }}" title="Pages tagged {{ tag }}">{{ tag }}</a></li>{% endfor %}
+        </ul>
+        {% if page.link %}
+          <h1 class="entry-title"><a href="{{ page.link }}">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %} <span class="link-arrow">&rarr;</span></a></h1>
+        {% else %}
+          <h1 class="entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %}</h1>
+        {% endif %}
+      </header>
+      <footer class="entry-meta">
+        {% if page.author %}
+          {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
+        {% endif %}
+        <span class="author vcard">By <span class="fn">{{ author.name }}</span></span>
+        <span class="entry-date date published" title="Published on {{ page.date | date_to_rfc822 }}"><time datetime="{{ page.date | date_to_xmlschema }}"><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;{{ page.date | date: "%B %d, %Y" }}</time></span>
+        {% if page.modified %}<span class="entry-date date modified updated" title="Modified on {{ page.modified | date_to_rfc822 }}"><time datetime="{{ page.modified }}"><i class="fa fa-pencil"></i>&nbsp;&nbsp;{{ page.modified | date: "%B %d, %Y" }}</time></span>{% endif %}
+        {% capture readtime %}{{ page.content | number_of_words | plus:91 | divided_by:150.0 | append:'.' | split:'.' | first }}{% endcapture %}
+        <span class="entry-readingtime" title="{{ page.content | number_of_words }} words"><i class="fa fa-clock-o"> </i>&nbsp;&nbsp;{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. reading </span>
+        {% if site.owner.disqus-shortname and page.comments or site.comments %}<span class="entry-comments" title="Click to navigate to comments"><i class="fa fa-comments-o"></i>&nbsp;&nbsp;<a href="{{ page.url }}#comments" data-disqus-identifier="{{ page.path | split:'/' | last | cgi_escape }}">View Comments</a></span>{% endif %}
+        {% if page.share %}{% include social-share.html %}{% endif %}
+        {% if page.ads == true %}{% include ad-sidebar.html %}<!-- /.google-ads -->{% endif %}
+      </footer>
+      <div class="entry-content">
+        {{ content }}
+        {% if page.pollid %} <div id="poll">{% include polls/poll-{{page.pollid}}.html %}</div> {% endif %}
+        {% if page.relatedposts %}{% include related-posts.html %}{% endif %}	
+        {% if site.owner.disqus-shortname and page.comments or site.comments %}
+            <div id="comments">
+                <h2 id="comments-title" class="comment-toggle"><i class="fa fa-comments-o"></i>&nbsp;&nbsp;Leave your Message here...</h2>
+                <div id="comments-wrap" style="display: none;">
+                   <div id="disqus_thread"></div><!-- /#disqus_thread -->
+                    {% include disqus-comments.html %}
+                </div>
+            </div>
+        {% endif %}
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+  </article>
+  <p id="back-top" {% if page.enable_chat %}class="right-higher"{% else %}class="right"{% endif %}><a href="#post"><i class="fa fa-angle-double-up no-print"></i></a></p>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    {% include footer.html %}
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+{% include scripts.html %}
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<script type="text/javascript">
+  var BASE_URL = '{{ site.url }}';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ site.url }}/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="{{ site.baseurl }}/assets/js/scripts.min.js"></script>
+
+{% if site.owner.google.analytics %}
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '{{ site.owner.google.analytics }}', 'auto');
+  ga('require', 'linkid');
+  ga('send', 'pageview');
+</script>
+{% endif %}
+<!-- Scroll effect for invisible & lazy elements -->
+<script type="text/javascript">
+$(document).ready(function() {
+
+	/* Hide the 'back-top' element */
+	$("#back-top").hide();
+   
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function() {
+        
+		/* Check the location of each 'invisible' element */
+        $('.invisible').each( function(i) {
+            
+			var middle_of_object = $(this).offset().top + ($(this).outerHeight()  * 0.5);
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is half visible in the window... */
+            if( bottom_of_window > middle_of_object ) { 
+				var thisIsIframe = $(this).is("iframe");
+				var thisIsImg = $(this).is("img");
+				if (thisIsIframe || thisIsImg) {
+					/* 1.a  object is a lazy source, load it*/
+					if ($(this).data('src')) {
+						$(this).prop('src', $(this).data('src')).data('src', false);
+					}				
+				} else {
+					/* 1.b object contains lazy sources, find them and load them*/
+					var $iframe=$(this).find('iframe');
+					if ($iframe.data('src')) { // only do it once per iframe
+						$iframe.prop('src', $iframe.data('src')).data('src', false);
+					}
+					var $img=$(this).find('img').each(function (index, element) { // do it for each nested image
+						if ($(this).data('src')) { // only do it once per image
+							$(this).prop('src', $(this).data('src')).data('src', false);
+						}
+					});
+				}
+				/* 2. fade-in the object  and remove the invisible class*/
+                $(this).animate({'opacity':'1'}, 700);
+				/* 3. remove the invisible class*/
+				$(this).removeClass("invisible");
+            }
+            
+        });
+		
+		/* Show or hide the back-top element */
+		if ($(this).scrollTop() > 500) {
+			$('#back-top').fadeIn(100);
+		} else {
+			$('#back-top').fadeOut(100);
+		}		
+
+    });
+	
+	/* Scroll to top */
+	$(function () {
+		/* scroll body to 0px on click */
+		$('#back-top a').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 400);
+			return false;
+		});
+	});	
+    
+});
+</script>
+<!-- Toggle Comments -->
+<script type="text/javascript">
+$( "#comments" ).click(function() {
+  $( "#comments-wrap" ).slideToggle( "slow", function() {
+    // Animation complete.
+  });
+});
+</script>
+<!-- Replace missing images -->
+<script type="text/javascript">
+    $('img').error(function(){
+    $(this).attr('src', '/images/Image_Not_Found.png');
+	var alttext = $(this).attr('alt');
+    $(this).attr('title', 'Image ['+alttext+'] Not Found.');
+});
+</script>
+<!-- xml data load -->
+{% if page.xmldata %}
+{% include templates/xmltemplates.xml %}
+<script type="text/javascript" language="javascript">
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",
+            url: "{{ page.xmldata.data }}",
+            dataType: "xml",
+            success: function(xml) {
+				var counter = 0;
+                $(xml).find('item').each(function() {
+				   // create item
+					var dataitem =xml2jsobj(this);
+					dataitem['alignment'] = (counter % 2 === 0) ? 'right' : '';
+					// TODO:  This hack assumes that iframe is placed in xml's footer tag.
+					var iframetype = "other";
+					var footer = $(this).find('footer').text();
+					if (footer) {
+						if ( footer.indexOf("bandcamp") > -1 ) {
+							iframetype = "bandcamp";
+						} else if (footer.indexOf("soundcloud") > -1) {
+							iframetype = "soundcloud";
+						}
+					}
+					dataitem['iframetype'] = iframetype;
+                   $( "#{{ page.xmldata.template }}" ).tmpl(dataitem).appendTo( "#timeline" );
+				   counter++;
+                });
+				$("#amountxmldata").text(counter);
+            },
+            error: function() {
+                alert("An error occurred while processing XML file.");
+            }
+        });
+    });
+	
+function xml2jsobj(node) {
+	var	data = {};
+	// append a value
+	function Add(name, value) {
+		if (data[name]) {
+			if (data[name].constructor != Array) {
+				data[name] = [data[name]];
+			}
+			data[name][data[name].length] = value;
+		}
+		else {
+			data[name] = value;
+		}
+	};
+	
+	// element attributes
+	var c, cn;
+	for (c = 0; cn = node.attributes[c]; c++) {
+		Add(cn.name, cn.value);
+	}
+	
+	// child elements
+	for (c = 0; cn = node.childNodes[c]; c++) {
+		if (cn.nodeType == 1) {
+			if (cn.childNodes.length == 1 && cn.firstChild.nodeType == 3) {
+				// text value
+				if (cn.nodeName) {
+					Add(cn.nodeName, cn.firstChild.nodeValue);
+				}
+			} else {
+				// sub-object
+				if (cn.nodeName) {
+					// if added by aleh, to support cases when node is empty
+					if (cn.childNodes.lenght > 0) {
+						Add(cn.nodeName, xml2jsobj(cn));
+					} else {
+						Add(cn.nodeName, null);
+					}
+				}
+			}
+		}
+	}
+	
+	return data;
+}	
+</script>
+{% endif %}
+{% if page.instafeed %}
+<!-- Instafeed -->
+{% assign instafeedImage = '{{image}}' %}
+{% assign instafeedCaption = '{{caption}}' %}
+{% assign instafeedLink = '{{link}}' %}
+{% assign instafeedLocation = '{{location}}' %}
+{% assign instafeedUserName = '{{model.user.username}}' %}
+<script type="text/javascript">
+    var loadButton = document.getElementById('instafeed-load-more');
+    var feed = new Instafeed({
+        get: 'user',
+        userId: '{{ site.owner.instagram.userId }}',
+        clientId: '{{ site.owner.instagram.clientId }}',
+        accessToken: '6678174.467ede5.205a03ebc4b74d4082823781c3149575',
+        sortBy: '{{ page.instafeed.sortBy }}',
+        limit: 60,
+        resolution: '{{ page.instafeed.resolution }}',
+        filter: function(image) {
+            return image.tags.indexOf('{{ page.instafeed.tag }}') >= 0;
+        },
+        after: function() {
+            if (!this.hasNext() && (loadButton != null)) {
+			    // disable load-more button if no more results to load
+				loadButton.className += " disabled-btn";
+                loadButton.setAttribute('disabled', 'disabled');
+            }
+        },
+        template: '<figure class="center"><a href="{{instafeedLink}}" target="_blank"><img src="{{instafeedImage}}" /></a><figcaption>{{instafeedLocation}}.<br/>Photo Courtesy: <a href="{{instafeedLink}}" target="_blank">@{{instafeedUserName}}</a></figcaption></figure><p>{{instafeedCaption}}</p>'
+    });
+	if (loadButton != null) {
+		// bind the load more button
+		loadButton.addEventListener('click', function() {
+			feed.next();
+		});
+	}
+    feed.run();
+	// load feed when bottom of page if there is no load button
+	if (loadButton == null) {
+		jQuery(document).ready(function(){
+			$(window).scroll(function() {
+				if($(window).scrollTop() + $(window).height() == $(document).height()) {
+					feed.next();
+				}
+			});
+		});	
+	}
+</script>
+{% endif %}
+{% if page.enable_chat %}
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/{{ site.owner.tawkto.siteID }}/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+{% endif %}

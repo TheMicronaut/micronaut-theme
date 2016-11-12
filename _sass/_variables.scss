@@ -1,0 +1,64 @@
+@import "font-face";
+
+// TYPOGRAPHY ================================================
+$base-font                : 'gfs-artemisia_regular', 'gfs-artemisia_italic', sans-serif;
+$heading-font             : 'gfs-artemisia_italic', 'gfs-artemisia_regular', sans-serif;
+$quote-font               : 'gfs-artemisia_bolditalic', 'gfs-artemisia_regular', sans-serif;
+$alt-font                 : 'Philosopher', 'gfs-artemisia_regular', sans-serif;
+$capital-font             : 'zallman_capsregular', 'gfs-artemisia_regular', sans-serif;
+$imagecredit-font         : $heading-font;
+$figcaption-font          : $base-font;
+$code-font                : $alt-font;
+
+$doc-font-size            : 16;
+$doc-line-height          : 24;
+
+$border-radius            : 3px;
+
+
+// set-up the body font-size / line-height
+body {
+  margin-top: 0px + $doc-line-height;
+  font-size: 0px + $doc-font-size;
+}
+
+
+// COLORS =====================================================
+$body-color               : #fff;
+$text-color               : #000;
+$base-color               : #343434;
+$comp-color               : adjust-hue($base-color, 180);
+$border-color             : #ddd;
+$white                    : #fff;
+$black                    : #000;
+$accent-color             : $black;
+$link-color               : #222;
+$navarrows-color          : #696969;
+
+$table-border-color       : $border-color;
+$table-border             : 1px solid $table-border-color;
+$table-background         : $body-color;
+$table-header-color       : lighten($table-background, 10);
+$table-hover-color        : darken($table-background, 2);
+$table-stripe-color       : darken($table-background, 4);
+$table-stripe-color-hover : darken($table-stripe-color, 5);
+
+$facebook-color           : #3b5998;
+$flickr-color             : #ff0084;
+$foursquare-color         : #0cbadf;
+$google-plus-color        : #dd4b39;
+$instagram-color          : #4e433c;
+$linkedin-color           : #4875b4;
+$pinterest-color          : #cb2027;
+$rss-color                : #fa9b39;
+$tumblr-color             : #2c4762;
+$twitter-color            : #55acee;
+$vimeo-color              : #1ab7ea;
+$youtube-color            : #ff3333;
+
+// MEDIA QUERIES ==============================================
+$micro                    : "only screen and (min-width: 30em)";
+$small                    : "only screen and (min-width: 37.5em)";
+$medium                   : "only screen and (min-width: 48em)";
+$large                    : "only screen and (min-width: 62em)";
+$x-large                  : "only screen and (min-width: 86.375em)";

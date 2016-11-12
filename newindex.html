@@ -1,0 +1,40 @@
+---
+layout: page
+title: Latest Posts
+excerpt: "The main page."
+search_omit: true
+---
+<section class="section--postsWrapper">
+  <div class="container">
+    <div class="blockGroup">
+      <ul class="blockGroup-list">
+        {% for post in site.posts %}
+          <li class="block">
+            <div class="postArticle-wrapper">
+              <article class="postArticle postArticle--short">
+                {% if post.image.feature %}
+					{% assign imageUrl = site.url | append:'/images/' | append: post.image.feature %}
+                {% elsif post.image.thumbnail %}
+					{% assign image = post.image.thumbnail %}
+						{% if image contains 'http' %}
+							{% assign imageUrl = image %}
+						{% else %}
+							{% assign imageUrl = site.external_data_url | append: image %}
+						{% endif %}
+				{% else %}
+					{% assign imageUrl = site.url | append:'/images/' | append: site.logo %}
+                {% endif %}
+				<a href="{{ post.url }}">
+				  <div class="postArticle-image desaturate" style="background-image:url('{{ imageUrl }}')">
+				  </div>
+				</a>				
+                <a class="postArticle-title" href="{{ post.url }}">{{ post.title }}</a>
+              </article>
+              <div class="block-postMeta">{{ post.date | date: "%B %d, %Y" }}</div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

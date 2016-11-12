@@ -1,0 +1,74 @@
+# Site wide configuration
+
+title: Micronaut Tuned So Simple Theme
+locale: en_US
+timezone: CET
+description: Site Description
+logo: site-logo.svg
+search: true
+url: #your-site-url
+external_data_url: # common url for images and other external data
+
+# Jekyll configuration
+
+permalink:   /:categories/:title/
+markdown:    kramdown
+highlighter: rouge
+sass:
+  sass_dir: _sass
+  style: compressed
+gems:
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-paginate
+
+kramdown:
+  input: GFM
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..2
+  enable_coderay: false
+
+mathjax: true
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", ".less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "vendor"]
+
+paginate: 20
+paginate_path: /posts/page:num
+
+
+# Site owner
+owner:
+  name: Site Name
+  avatar: site-logo.png
+  email: #youremail
+  disqus-shortname: #your-disqus-shortname
+  twitter: #your-twitter-name
+  facebook: #username
+  github: #your-github-name
+  stackexchange: #http://stackoverflow.com/users/123456/username
+  linkedin: #username
+  instagram:
+    user: #instagram-username
+    userId: #instagram-userId
+    clientId: #instagram-clientId
+  flickr: #username
+  tumblr: #tumblr-name
+  pinterest: #username
+  weibo: #userid
+  soundcloud: #soundcloud-name
+  mixcloud: #mixcloud-name
+  lastfm: #username
+  tawkto:
+    siteID: #tawkto-siteID
+  google:
+    plus:
+    analytics: #google-analytics-id
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:

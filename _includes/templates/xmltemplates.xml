@@ -1,0 +1,21 @@
+<script id="timelinetemplate" type="x-jquery-tmpl">
+{% raw %}
+ 	<div class="invisible timeline-item">
+		<div class="timeline-icon">
+			<img src="/images/timeline/micronaut-white-transparent.png" alt="">
+		</div>
+		<div class="timeline-content ${alignment}">
+			<h2>${title}</h2>
+			{{if subtitle}}<h3><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;${subtitle}</h3>{{/if}}
+			{{if tags}}<p id="tags">${tags}</p>{{/if}}
+			{{if header}}<img class="center" src="${header}" alt="image">{{/if}}
+			<p>${body}<br/>{{if source}}source: <a href="${sourcelink}" target="_blank">${source}</a>{{/if}}</p>
+			{{if footer}}
+			{{if iframetype == "other"}}<iframe width="100%" height="250" frameborder="0" src="about:blank" data-src="${footer}"></iframe>{{/if}}
+			{{if iframetype == "bandcamp"}}<iframe style="border: 0; width: 100%; height: 42px;" src="about:blank" data-src="${footer}" seamless></iframe>{{/if}}
+			{{if iframetype == "soundcloud"}}<iframe width="100%" height="166" frameborder="0" src="about:blank" data-src="${footer}"></iframe>{{/if}}
+			{{/if}}
+		</div>
+	</div>
+{% endraw %}	
+</script>

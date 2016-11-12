@@ -1,0 +1,400 @@
+// Printability
+// --------------------------------------------------
+@media print {
+  .no-print {
+    display:none;
+  }
+  h1, h2, h3, h4, h5 {
+    page-break-after: avoid;
+  }
+  table, figure, p {
+    page-break-inside: avoid;
+  }
+}
+
+// Visibility (Scroll Effects)
+// --------------------------------------------------
+.invisible {
+	opacity: 0;
+}
+
+.visible {
+	opacity: 1;
+}
+
+// Section (span) with italics
+// --------------------------------------------------
+.italics {
+	font-family:  $heading-font;
+}
+
+// First paragraph letter
+// --------------------------------------------------
+.dcap {
+	color: #000; 
+	display: block; 
+	float: left; 
+	font-family:  $capital-font;
+	font-size: 95px; 
+	font-weight: 400;
+	height: 75px; 
+	line-height: 95px;
+}
+
+// Central quote
+// --------------------------------------------------
+div .central-quote {
+    background:
+        url(/images/divider-top.png) top center no-repeat,
+        url(/images/divider-bottom.png) bottom center no-repeat;
+    background-size: contain;
+    color: #222;
+    font-family:  $quote-font;
+    font-style: italic;	
+    line-height: 1.2em; 
+	padding: 30px 30px 40px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+    @include font-size(22,no,22);
+    @include media($medium) {
+	    @include font-size(24,no,24);
+		max-width: 80%;
+    }
+    @include media($large) {
+        @include font-size(26,no,26);
+		max-width: 70%;
+    }
+}
+
+// Inline quote
+// --------------------------------------------------
+.inline-quote {
+	font-family: $quote-font;
+    font-style: italic;
+    @include font-size(14);
+    @include media($medium) {
+	    @include font-size(16);
+    }
+    @include media($large) {
+        @include font-size(18);
+    }	
+}
+
+// non-selectable element
+// --------------------------------------------------
+.non-selectable {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none; 
+}
+
+// Box with header
+// --------------------------------------------------
+.header-box {
+  background-color: $body-color;
+  border-top: 3px double $black;
+  margin-top: 2rem;
+}
+
+.header-box h1 { 
+  margin : 0px 0px -10px 5%; 
+  position: relative; 
+  top : -18px;
+  padding : 0 6px;
+  font-size : 24px;
+  font-family: $heading-font;
+  font-style: italic;
+  display: inline; 
+  background-color: $body-color;
+  font-weight: normal;
+}
+
+.headed-box-list {
+  padding: 0 1.4em !important;
+}
+
+// Text divider
+// --------------------------------------------------
+div .text-divider {
+    background: url(/images/divider-text.png) center no-repeat;
+    background-size: contain;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 25px;
+	max-width: 40%;
+} 
+
+// Center alignment
+// --------------------------------------------------
+// check also helpers.sass for pull-left, pull-right
+iframe, img {
+    &.center {
+        display:block;
+        margin-left: auto;
+        margin-right: auto;        
+    }
+}
+
+div.center {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// TODO: for the moment force all iframes to center. 
+//  Later, update all posts to use .center class.
+iframe {
+    display:block;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+// Social share
+// --------------------------------------------------
+.social-share {
+	$social: 
+        (facebook, $facebook-color),
+		(flickr, $flickr-color),
+		(foursquare, $foursquare-color),
+		(google-plus, $google-plus-color),
+		(instagram, $instagram-color),
+		(linkedin, $linkedin-color),
+		(pinterest, $pinterest-color),
+		(rss, $rss-color),
+		(tumblr, $tumblr-color),
+		(twitter, $twitter-color),
+		(vimeo, $vimeo-color),
+		(youtube, $youtube-color);
+    outline: none !important;
+	color: $link-color;
+	&:hover {
+        @each $socialnetwork, $color in $social {
+            i.fa-#{$socialnetwork} {
+                color: $color;
+            } 
+        }
+	}
+}
+
+// PREVIEWS-NEXT POST
+// --------------------------------------------------
+.next-prev a {
+	background: $body-color;
+	color: $text-color;
+	border: 1px solid black;
+	padding: 10px;
+	font-size: 14px;
+	font-family:  $alt-font; 
+	text-transform: uppercase;
+	font-weight: 400;
+	letter-spacing: 1px;
+	@include media($micro) {
+		display: none;
+	}
+}
+
+.next-prev a:hover {
+	color: $white;
+	background: $black;
+}
+
+.next-post a {
+	position: fixed;
+	z-index: 20;
+	right: -112px;
+	top: 50%;
+	padding-right: 20px;
+	padding-left: 32px;
+	-webkit-transition: .1s ease-in;  
+	-moz-transition: .1s ease-in;  
+	-o-transition: .1s ease-in;  
+	transition: .1s ease-in; 
+}
+
+.next-post a:hover {
+	right: 0px;
+	-webkit-transition: .2s ease-in;  
+	-moz-transition: .2s ease-in;  
+	-o-transition: .2s ease-in;  
+	transition: .2s ease-in; 
+}
+
+.next-post a:after {
+	position: absolute;
+	content: "\f105";
+	left: 10px;
+	top: 1px;
+	font-size: 25px;
+	font-family: 'FontAwesome';
+    -webkit-font-smoothing: antialiased;
+}
+
+.prev-post a {
+	position: fixed;
+	z-index: 20;
+	left: -150px;
+	top: 50%;
+	padding-left: 20px;
+	padding-right: 35px;
+	-webkit-transition: .1s ease-in;  
+	-moz-transition: .1s ease-in;  
+	-o-transition: .1s ease-in;  
+	transition: .1s ease-in; 
+}
+
+.prev-post a:hover {
+	left: 0;
+	-webkit-transition: .2s ease-in;  
+	-moz-transition: .2s ease-in;  
+	-o-transition: .2s ease-in;  
+	transition: .2s ease-in; 
+}
+
+.prev-post a:after {
+	position: absolute;
+	content: "\f104";
+	right: 8px;
+	top: 1px;
+	font-size: 25px;
+	font-family: 'FontAwesome';
+    -webkit-font-smoothing: antialiased;
+}
+
+// Back to top
+// --------------------------------------------------
+#back-top {
+    position: fixed;
+    outline: none !important;
+	font-size: 1.5rem;
+	margin-bottom: 0px;
+}
+
+#back-top.left { 
+    left: 0px;
+    margin-left: 8px;
+    bottom: 0px;
+}
+
+#back-top.right { 
+    right: 0px;
+    margin-right: 12px;
+    bottom: 0px;
+}
+
+#back-top.right-higher { 
+    right: 0px;
+    margin-right: 12px;
+    bottom: 100px;
+}
+
+#back-top a {
+    display: block;
+    text-decoration: none;
+    color: $navarrows-color;
+    outline: none !important;
+}
+#back-top a:hover {
+	color: $black;
+}
+
+// Comments section
+// --------------------------------------------------
+#comments {
+	background: #FCFCFC;
+	border: solid 1px #D7D7D7;
+    float: left;
+	width: 100%;
+	margin-top: 12px;
+}
+
+#comments-wrap {
+	width: 95%;
+	margin: 0 auto;
+}
+
+#comments-title {
+	background: #FCFCFC;
+	padding: 3% 0;
+	margin: 0rem !important;
+	font-family: $heading-font;
+	@include font-size(30,yes,30);	
+	font-weight: normal;
+	text-align: center;
+	-webkit-transition: .07s ease-in;
+	-moz-transition: .07s ease-in;
+	-o-transition: .07s ease-in;
+	transition: .07s ease-in;
+}
+
+#comments .comment-toggle:hover {
+	background: #EBEEF2;
+	cursor: pointer;
+	 -webkit-transition: .07s ease-in;  
+	-moz-transition: .07s ease-in;  
+	-o-transition: .07s ease-in;  
+	transition: .07s ease-in; 
+}
+
+// Boxed Figure
+// Captions appear when hovering mouse
+// --------------------------------------------------
+.boxed {
+	cursor: pointer;
+	//float: left;
+	position: relative;
+	overflow: hidden;
+	height: 300px;
+	width: 300px;
+	margin: auto;
+}
+.boxed img {
+	position: absolute;
+	left: 0;
+	border: none;
+	max-width: none;
+	-webkit-transition: all 300ms ease-out;
+	-moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;	
+	transition: all 300ms ease-out;
+}
+
+.boxed:hover img {
+	-moz-transform: scale(1.4);
+	-o-transform: scale(1.4);
+	-webkit-transform: scale(1.4);
+	transform: scale(1.4);
+}
+
+.boxed figcaption {
+	background-color: rgba(0,0,0,0.8);
+	position: absolute;
+	color: #fff;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	width: 300px;
+	height: 300px;
+	padding: 15px;
+	font-family: $heading-font;
+	font-style: italic;
+	text-align: left;
+	@include font-size(16,no,15);
+	margin-top: 0;
+}
+
+.boxed figcaption:before {
+    content: none;
+}
+
+.boxed:hover figcaption {
+	opacity: 1;
+}

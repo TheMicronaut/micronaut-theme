@@ -1,0 +1,44 @@
+---
+layout: page
+title: Latest Posts
+excerpt: "Micronaut's Blog Main Page"
+search_omit: true
+---
+<ul class="post-list">
+{% for post in paginator.posts %} 
+  <li>
+    <article>
+	  <a href="{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a>
+    </article>
+	<footer>
+      <span>{% if post.categories %}<i class="fa fa-angle-double-right"></i>&nbsp;<a href="/{{ post.categories | first }}" title="Posts in {{ post.categories | first }} category">{{ post.categories | first }}</a>{% endif %}&nbsp;&nbsp;</span>
+	  <span>{% if post.tags %}<i class="fa fa-tags"></i>&nbsp;{% endif %}{% for tag in post.tags %}<a href="/tags/#{{ tag }}" title="Posts tagged {{ tag }}">{{ tag }}</a>{% unless forloop.last %}&nbsp;·&nbsp;{% endunless %}{% endfor %}&nbsp;&nbsp;</span>
+	  <span title="{{ post.content | number_of_words }} words">{% capture readtime %}{{ post.content | number_of_words | plus:91 | divided_by:150.0 | append:'.' | split:'.' | first }}{% endcapture %}<i class="fa fa-clock-o"></i>&nbsp;{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. reading</span>
+	  <span class="excerpt">{{ post.excerpt | remove: '\[ ... \]' | remove: '\( ... \)' | markdownify | strip_html | strip_newlines | escape_once | truncatewords:125 }}</span>
+	</footer>
+  </li>
+{% endfor %}
+</ul>
+
+<!-- Pagination links -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | replace: 'index.html', '/' | replace: '//', '/' }}" class="btn non-selectable" style="font-size: 15pt"><i class="fa fa-angle-double-left"></i>  Page {{ paginator.previous_page }}</a>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+  {% if page == paginator.page %}
+    <span class="btn non-selectable" style="background-color: #fff; color: #000;">{{ page }}</span>
+  {% elsif page == 1 %}
+    <a href="{{ site.url }}" class="btn non-selectable">{{ page }}</a>
+  {% else %}
+    <a href="{{ site.paginate_path | replace: ':num', page }}" class="btn non-selectable">{{ page }}</a>
+  {% endif %}
+  {% endfor %}
+  
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | replace: 'index.html', '/' | replace: '//', '/' }}" class="btn non-selectable">Page {{ paginator.next_page }}   <i class="fa fa-angle-double-right"></i></a>
+  {% endif %}
+</div>
+{% endif %}

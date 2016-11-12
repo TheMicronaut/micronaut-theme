@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Notices
+   ========================================================================== */
+
+/*
+   Default notice
+   ========================================================================== */
+
+.notice {
+  margin-top: 1.5em;
+  padding: .5em 1em;
+  text-indent: 0;
+  @include font-size(16);
+  background-color: $border-color;
+  border: 1px solid darken($border-color,20);
+  @include rounded($border-radius);
+}
+
+/*
+   Browser upgrade notice
+   ========================================================================== */
+
+.upgrade {
+  padding: 10px;
+  text-align: center;
+}
