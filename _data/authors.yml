@@ -5,7 +5,7 @@ Author1:
   web: 
   email: 
   bio: 
-  avatar: bio-photo.jpg
+  avatar: authors/bio-photo.jpg
   twitter: 
   google:
     plus:
@@ -16,7 +16,7 @@ Author2:
   web: 
   email: 
   bio: 
-  avatar: bio-photo-2.jpg
+  avatar: authors/bio-photo-2.jpg
   twitter: 
   google:
     plus:
