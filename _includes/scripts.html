@@ -171,7 +171,7 @@ function xml2jsobj(node) {
 			} else {
 				// sub-object
 				if (cn.nodeName) {
-					// if added by aleh, to support cases when node is empty
+					// added to support cases when node is empty
 					if (cn.childNodes.lenght > 0) {
 						Add(cn.nodeName, xml2jsobj(cn));
 					} else {
