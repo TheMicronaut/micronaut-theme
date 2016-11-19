@@ -21,18 +21,11 @@
 {% endif %}
 <!-- Scroll effect for invisible & lazy elements -->
 <script type="text/javascript">
-$(document).ready(function() {
-
-	/* Hide the 'back-top' element */
-	$("#back-top").hide();
-   
-    /* Every time the window is scrolled ... */
-    $(window).scroll( function() {
-        
-		/* Check the location of each 'invisible' element */
+/* Check the location of each 'invisible' element and make visible if needed*/
+function ShowInvisibleElements() {
         $('.invisible').each( function(i) {
             
-			var middle_of_object = $(this).offset().top + ($(this).outerHeight()  * 0.5);
+			var middle_of_object = $(this).offset().top + ($(this).outerHeight()  * 0.4);
             var bottom_of_window = $(window).scrollTop() + $(window).height();
             
             /* If the object is half visible in the window... */
@@ -63,7 +56,17 @@ $(document).ready(function() {
             }
             
         });
-		
+}
+
+$(document).ready(function() {
+
+	/* Hide the 'back-top' element */
+	$("#back-top").hide();
+	ShowInvisibleElements();
+   
+   /* Every time the window is scrolled ... */
+    $(window).scroll( function() {
+        ShowInvisibleElements();
 		/* Show or hide the back-top element */
 		if ($(this).scrollTop() > 500) {
 			$('#back-top').fadeIn(100);
