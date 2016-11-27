@@ -74,13 +74,6 @@ div .central-quote {
 .inline-quote {
 	font-family: $quote-font;
     font-style: italic;
-    @include font-size(14);
-    @include media($medium) {
-	    @include font-size(16);
-    }
-    @include media($large) {
-        @include font-size(18);
-    }	
 }
 
 // non-selectable element
@@ -291,7 +284,7 @@ iframe {
 #back-top.right-higher { 
     right: 0px;
     margin-right: 12px;
-    bottom: 100px;
+    bottom: 80px;
 }
 
 #back-top a {

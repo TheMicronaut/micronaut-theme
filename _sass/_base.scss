@@ -169,9 +169,8 @@ figure {
 	}
   }
   a {
-
+	outline: none !important;
     img {
-	  outline: none !important;
       &:hover {
         -webkit-filter: drop-shadow(1px 1px 2px black);
         filter: drop-shadow(1px 1px 2px black);
