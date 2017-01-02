@@ -25,7 +25,7 @@
 function ShowInvisibleElements() {
         $('.invisible').each( function(i) {
             
-			var middle_of_object = $(this).offset().top + ($(this).outerHeight()  * 0.4);
+			var middle_of_object = $(this).offset().top + ($(this).outerHeight()  * 0.35);
             var bottom_of_window = $(window).scrollTop() + $(window).height();
             
             /* If the object is half visible in the window... */
@@ -50,9 +50,12 @@ function ShowInvisibleElements() {
 					});
 				}
 				/* 2. fade-in the object  and remove the invisible class*/
-                $(this).animate({'opacity':'1'}, 700);
+                $(this).animate({'opacity':'1'}, 500);
 				/* 3. remove the invisible class*/
 				$(this).removeClass("invisible");
+            } else {
+			    /*invisible object not completely visible; thus, ignore the remaining invisible items.*/
+                return;
             }
             
         });
