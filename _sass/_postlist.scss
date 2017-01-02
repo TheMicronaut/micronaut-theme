@@ -48,7 +48,7 @@ $gray-lighter:          lighten(#000, 93.5%) !default; // #eee
     padding: 0 10px;
   }
 
-  .block {
+  .block, .simpleblock {
     display: block;
     width: 25%;
     margin-bottom: $leading;

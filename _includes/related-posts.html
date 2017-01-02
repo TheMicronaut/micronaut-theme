@@ -1,19 +1,33 @@
 <div class="header-box">
 <h1>Related posts</h1> 
-<ul class="post-list headed-box-list">
+<ul class="blockGroup-list">
 {% for relatedpost in page.relatedposts %}
 	{% for post in site.posts %}
 		{% if post.url contains relatedpost.url %}
-			  <li>
-				<article>
-					<a href="{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a>
-				</article>
-				<footer>
-				  <span>{% if post.tags %}<i class="fa fa-tags"></i>&nbsp;{% endif %}{% for tag in post.tags %}<a href="/tags/#{{ tag }}" title="Posts tagged {{ tag }}">{{ tag }}</a>{% unless forloop.last %}&nbsp;·&nbsp;{% endunless %}{% endfor %}&nbsp;&nbsp;</span>
-				  <span>{% capture readtime %}{{ post.content | number_of_words | plus:91 | divided_by:150.0 | append:'.' | split:'.' | first }}{% endcapture %}<i class="fa fa-clock-o"></i>&nbsp;{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. reading</span><br>
-				  <span class="excerpt">{{ post.excerpt | remove: '\[ ... \]' | remove: '\( ... \)' | markdownify | strip_html | strip_newlines | escape_once | truncatewords:125 }}</span>				
-				</footer>
-			  </li>
+          <li class="simpleblock">
+            <div class="postArticle-wrapper">
+              <article class="postArticle postArticle--short">
+                {% if post.image.feature %}
+					{% assign imageUrl = site.url | append:'/images/' | append: post.image.feature %}
+                {% elsif post.image.thumbnail %}
+					{% assign image = post.image.thumbnail %}
+						{% if image contains 'http' %}
+							{% assign imageUrl = image %}
+						{% else %}
+							{% assign imageUrl = site.external_data_url | append: image %}
+						{% endif %}
+				{% else %}
+					{% assign imageUrl = site.url | append:'/images/' | append: site.logo %}
+                {% endif %}
+				<a href="{{ post.url }}">
+				  <div class="postArticle-image desaturate" style="background-image:url('{{ imageUrl }}')">
+				  </div>
+				</a>				
+                <a class="postArticle-title" href="{{ post.url }}">{{ post.title }}</a>
+              </article>
+              <div class="block-postMeta">{{ post.date | date: "%B %d, %Y" }}</div>
+            </div>
+          </li>
 			{% break %}
 		{% endif %}
 	{% endfor %}
