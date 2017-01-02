@@ -107,11 +107,10 @@ $gray-lighter:          lighten(#000, 93.5%) !default; // #eee
     background: $white;
     width: 100%;
     padding-bottom: 2*$leading;
-    box-shadow: 0 1px 4px rgba(0,0,0,.2);
 
     &:hover {
-      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 10px 1px rgba(0,0,0,.2);
+        -webkit-filter: drop-shadow(1px 1px 2px rgba(140, 140, 140, 0.8));
+        filter: drop-shadow(1px 1px 2px rgba(140, 140, 140, 0.8));
     }
   }
 
@@ -158,9 +157,9 @@ $gray-lighter:          lighten(#000, 93.5%) !default; // #eee
   .block-postMeta {
     position: absolute;
     bottom: 0;
-    padding-bottom: 10px;
-    color: #ccc;
-    font-size: 16px;
+    padding-bottom: 5px;
+    color: #a1a1a1;
+    font-size: 0.9rem;
   }
 
   .postArticle-title,
