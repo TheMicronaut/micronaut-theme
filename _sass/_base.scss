@@ -235,10 +235,10 @@ table {
 
 blockquote {
 	font-family: $quote-font;
-	font-style: italic;
+	//font-style: italic;
 	@include font-size(16);
-	padding-left: 15px;
-	border-left: 4px solid $black;
+	padding-left: 10px;
+	border-left: 2px solid $black;
 }
 
 /* for the moment, keep disabled...
