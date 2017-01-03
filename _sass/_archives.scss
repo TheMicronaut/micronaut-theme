@@ -17,10 +17,9 @@
     @include clearfix;
     list-style-type: none;
       > article {
-        font-family: $alt-font;
-        font-style: italic;
-        @include font-size(22,no);
-        border-bottom: 1px solid lighten($black,80);
+        font-family: $heading-font;
+        @include font-size(22,no,22);
+        border-bottom: 1px solid #aaa;
       }
       > footer {
         text-transform: uppercase;
