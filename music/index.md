@@ -8,7 +8,7 @@ search_omit: true
 <figure>
     <img src="/images/dancing-man.gif" alt="dancing-man-image" class="center non-selectable" width="40%"/>
 </figure>
-<div class="no-print pull-right quote-text"><i class="fa fa-rss"></i> <a href="/feed.music.xml" target="_blank">music feed</a></div><br/>
+<div class="no-print pull-right"><i class="fa fa-rss"></i> <a href="/feed.music.xml" target="_blank">music feed</a></div><br/>
 
 <ul class="post-list">
 {% for post in site.categories.music %}

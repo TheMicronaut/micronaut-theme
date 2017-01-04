@@ -8,7 +8,7 @@ search_omit: true
 <figure>
     <img src="/images/reading-man.gif" alt="reading-man-image" class="center non-selectable" width="70%"/>
 </figure>
-<div class="no-print pull-right quote-text"><i class="fa fa-rss"></i> <a href="/feed.stories.xml" target="_blank">stories feed</a></div><br/>
+<div class="no-print pull-right"><i class="fa fa-rss"></i> <a href="/feed.stories.xml" target="_blank">stories feed</a></div><br/>
 
 <ul class="post-list">
 {% for post in site.categories.stories %}
