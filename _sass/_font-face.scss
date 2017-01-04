@@ -46,3 +46,15 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'truetypewriter_polyglottRg';
+    src: url('../fonts/ttwpgott/ttwpgott.eot');
+    src: url('../fonts/ttwpgott/ttwpgott.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ttwpgott/ttwpgott.woff2') format('woff2'),
+         url('../fonts/ttwpgott/ttwpgott.woff') format('woff'),
+         url('../fonts/ttwpgott/ttwpgott.ttf') format('truetype'),
+         url('../fonts/ttwpgott/ttwpgott.svg#truetypewriter_polyglottRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
