@@ -1,3 +1,16 @@
+<!-- identify thumbnail image-->
+{% if page.image.feature %}
+	{% assign imageUrl = site.url | append:'/images/' | append: page.image.feature %}
+{% elsif page.image.thumbnail %}
+	{% assign image = page.image.thumbnail %}
+		{% if image contains 'http' %}
+			{% assign imageUrl = image %}
+		{% else %}
+			{% assign imageUrl = site.external_data_url | append: image %}
+		{% endif %}
+{% else %}
+	{% assign imageUrl = site.url | append:'/images/' | append: site.logo %}
+{% endif %}
 <!-- Twitter Cards -->
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 {% if page.excerpt %}<meta name="twitter:description" content="{{ page.excerpt | strip_html }}">{% endif %}
@@ -5,11 +18,10 @@
 {% if author.twitter %}<meta name="twitter:creator" content="@{{ author.twitter }}">{% endif %}
 {% if page.image.feature %}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{{ site.url }}/images/{{ page.image.feature }}">
 {% else %}
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="{% if page.image.thumb %}{{ site.url }}/images/{{ page.image.thumb }}{% else %}{{ site.url }}/images/{{ site.logo }}{% endif %}">
 {% endif %}
+<meta name="twitter:image" content="{{ imageUrl }}">
 <!-- Open Graph -->
 <meta property="og:locale" content="{{ site.locale }}">
 <meta property="og:type" content="article">
@@ -17,3 +29,4 @@
 {% if page.excerpt %}<meta property="og:description" content="{{ page.excerpt | strip_html }}">{% endif %}
 <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
 <meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:image" content="{{ imageUrl }}" />
