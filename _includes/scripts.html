@@ -1,5 +1,25 @@
 <script type="text/javascript">
-  var BASE_URL = '{{ site.url }}';
+    var BASE_URL = '{{ site.url }}';
+    var isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };  
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -113,37 +133,110 @@ $( "#comments" ).click(function() {
 {% include templates/xmltemplates.xml %}
 <script type="text/javascript" language="javascript">
     $(document).ready(function() {
+        var currentTemplate = "{{ page.xmldata.template }}";
+        var isEmbeddedTimeline = ( currentTemplate == "timelinejs");
         $.ajax({
             type: "GET",
             url: "{{ page.xmldata.data }}",
             dataType: "xml",
             success: function(xml) {
-				var counter = 0;
-                $(xml).find('item').each(function() {
-				   // create item
-					var dataitem =xml2jsobj(this);
-					dataitem['alignment'] = (counter % 2 === 0) ? 'right' : '';
-					// TODO:  This hack assumes that iframe is placed in xml's footer tag.
-					var iframetype = "other";
-					var footer = $(this).find('footer').text();
-					if (footer) {
-						if ( footer.indexOf("bandcamp") > -1 ) {
-							iframetype = "bandcamp";
-						} else if (footer.indexOf("soundcloud") > -1) {
-							iframetype = "soundcloud";
-						}
-					}
-					dataitem['iframetype'] = iframetype;
-                   $( "#{{ page.xmldata.template }}" ).tmpl(dataitem).appendTo( "#timeline" );
-				   counter++;
-                });
-				$("#amountxmldata").text(counter);
+                var nrOfItems = 0;
+                if  (isEmbeddedTimeline) {
+                  nrOfItems = RenderEmbeddedTimeline(xml);
+                } else {
+                    nrOfItems = RenderNativeTimeline(xml);
+                }
+               $("#amountxmldata").text(nrOfItems);
             },
             error: function() {
-                alert("An error occurred while processing XML file.");
+                alert("An error occurred while processing XML data.");
             }
         });
     });
+ 
+function RenderNativeTimeline(xml) {
+    var counter = 0;
+    $(xml).find('item').each(function() {
+        var dataitem =xml2jsobj(this);
+        dataitem['alignment'] = (counter % 2 === 0) ? 'right' : '';
+        dataitem['iframetype'] = GetFrameType(dataitem.footer);
+       $( "#{{ page.xmldata.template }}" ).tmpl(dataitem).appendTo( "#timeline" );
+       counter++;
+    });
+    return counter;
+}
+
+function RenderEmbeddedTimeline(xml) {
+    var counter = 0;
+    var jsonItems = {};
+    jsonItems.events = [];
+    $(xml).find('item').each(function() {
+        var dataitem =xml2jsobj(this);
+        var event =  jsObj2TimelineEvent(dataitem);
+        jsonItems.events.push(event);
+        counter++;
+    });
+    //console.log(JSON.stringify(jsonItems));
+      var additionalOptions = {
+        start_at_end: true,
+        dragging: true,
+        scale_factor: 10,
+        duration: 800,
+        hash_bookmark: true
+      }	
+    timeline = new TL.Timeline('timeline-js', jsonItems, additionalOptions);
+    return counter;
+}
+
+// Conversion is based on a default template; Ideally there should be a way
+// to parse a custom template and generate the Timeline event from there.
+function jsObj2TimelineEvent(dataitem) {
+        var event = {};
+        event.media = {};
+        event.start_date = {};
+        event.text = {};
+        event.background ={};
+        // 1. event background
+        event.background.url =  (dataitem.header == null) ?  "" : dataitem.header;
+        // 2. event media
+        var mediaUrl = (dataitem.footer == null) ? "" : dataitem.footer;
+        if (GetFrameType(dataitem.footer) ==  "bandcamp") {
+           if (isMobile.any()) {
+                mediaUrl = '<iframe style="border: 0; width: 100%; height: 120px;" src="'+ dataitem.footer+'/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/transparent=false/artwork=small/" seamless></iframe>';
+           } else {
+                mediaUrl = '<iframe style="border: 0; width: 100%; height: 100%" src="'+ dataitem.footer+'/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/transparent=false/" seamless></iframe>';
+           }
+        }
+        event.media.url = mediaUrl; 
+        event.media.credit = (dataitem.tags == null) ? "" : dataitem.tags;
+        //event.media.thumbnail = event.background.url;
+        // 3. event date
+        var date = new Date(dataitem.subtitle);
+        event.start_date.year = date.getFullYear();
+        event.start_date.month = date.getMonth()+1;
+        event.start_date.day = date.getDate();
+        // 4. event text
+        event.text.headline = (dataitem.title == null) ? "" : dataitem.title;
+        var eventText =  (dataitem.body == null) ? " " : dataitem.body;
+        var eventTextSource = "";
+        if (dataitem.source != null) {
+            eventTextSource = '<p class="pull-right inline-quote">source: <a href="'+dataitem.sourcelink+'" target="_blank">'+ dataitem.source +'</a></p>'
+        }
+        event.text.text = eventText + eventTextSource;
+        return event;
+}
+
+function GetFrameType(footer) {
+        var frametype = "other";
+        if (footer) {
+            if ( footer.indexOf("bandcamp") > -1 ) {
+                frametype = "bandcamp";
+            } else if (footer.indexOf("soundcloud") > -1) {
+                frametype = "soundcloud";
+            }
+        }
+        return frametype;
+}
 	
 function xml2jsobj(node) {
 	var	data = {};
@@ -187,7 +280,6 @@ function xml2jsobj(node) {
 			}
 		}
 	}
-	
 	return data;
 }	
 </script>

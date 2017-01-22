@@ -85,8 +85,8 @@ span + .entry-title {
 }
 
 .entry-title {
-	font-family: $heading-font;
-	font-style: italic;
+	font-family: $base-font;
+	//font-style: italic;
 	@include font-size(26,yes,26);
 	font-weight: 400;
 	//line-height: 1;

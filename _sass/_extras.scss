@@ -90,7 +90,7 @@ div .central-quote {
 // --------------------------------------------------
 .header-box {
   background-color: $body-color;
-  border-top: 3px double $black;
+  border-top: 1px solid lighten($black, 70);
   margin-top: 2rem;
 }
 

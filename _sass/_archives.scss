@@ -17,9 +17,13 @@
     @include clearfix;
     list-style-type: none;
       > article {
-        font-family: $heading-font;
+        font-family: $base-font;
         @include font-size(22,no,22);
+        padding-bottom: 5px;
         border-bottom: 1px solid #aaa;
+        &:hover {
+            border-bottom: 1px solid darken($link-color, 30);
+        }
       }
       > footer {
         text-transform: uppercase;
@@ -40,6 +44,7 @@
   }
 
   .entry-date {
+    font-family: $alt-font;
     @include font-size(14,no);
     text-transform: uppercase;
     display: none;
