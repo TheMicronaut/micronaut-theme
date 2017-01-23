@@ -30,7 +30,7 @@ sitemap: false
 		<a href="##Url##">##Title##<span class="entry-date"><time datetime="##Date##">##Date##</time></span></a>
 	</article>
 	<footer>
-		<span><i class="fa fa-angle-double-right"></i>&nbsp;##Category##</span>
+		<span><i class="fa fa-edit"></i>&nbsp;##Category##</span>
 		<span><i class="fa fa-tags"></i>&nbsp;##Tags##</span>
 		<span class="excerpt">##Excerpt##</span>				
 	</footer>
