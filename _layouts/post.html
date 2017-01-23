@@ -31,6 +31,7 @@
         {% endif %}
       </header>
       <footer class="entry-meta">
+        {% if page.share %}{% include social-share.html %}{% endif %}
         {% if page.author %}
           {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
         {% endif %}
@@ -38,9 +39,8 @@
         <span class="entry-date date published" title="Published on {{ page.date | date_to_rfc822 }}"><time datetime="{{ page.date | date_to_xmlschema }}"><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;{{ page.date | date: "%B %d, %Y" }}</time></span>
         {% if page.modified %}<span class="entry-date date modified updated" title="Modified on {{ page.modified | date_to_rfc822 }}"><time datetime="{{ page.modified }}"><i class="fa fa-pencil"></i>&nbsp;&nbsp;{{ page.modified | date: "%B %d, %Y" }}</time></span>{% endif %}
         {% capture readtime %}{{ page.content | number_of_words | plus:91 | divided_by:150.0 | append:'.' | split:'.' | first }}{% endcapture %}
-        <span class="entry-readingtime" title="{{ page.content | number_of_words }} words"><i class="fa fa-clock-o"> </i>&nbsp;&nbsp;{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. reading </span>
+        <span class="entry-readingtime" title="{{ page.content | number_of_words }} words"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. reading </span>
         {% if site.owner.disqus-shortname and page.comments or site.comments %}<span class="entry-comments" title="Click to navigate to comments"><i class="fa fa-comments-o"></i>&nbsp;&nbsp;<a href="{{ page.url }}#comments" data-disqus-identifier="{{ page.path | split:'/' | last | cgi_escape }}">View Comments</a></span>{% endif %}
-        {% if page.share %}{% include social-share.html %}{% endif %}
         {% if page.ads == true %}{% include ad-sidebar.html %}<!-- /.google-ads -->{% endif %}
       </footer>
       <div class="entry-content">
