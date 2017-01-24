@@ -154,17 +154,21 @@ iframe {
 .social-share {
 	$social: 
         (facebook, $facebook-color),
-		(flickr, $flickr-color),
-		(foursquare, $foursquare-color),
-		(google-plus, $google-plus-color),
-		(instagram, $instagram-color),
-		(linkedin, $linkedin-color),
-		(pinterest, $pinterest-color),
-		(rss, $rss-color),
-		(tumblr, $tumblr-color),
-		(twitter, $twitter-color),
-		(vimeo, $vimeo-color),
-		(youtube, $youtube-color);
+        (flickr, $flickr-color),
+        (foursquare, $foursquare-color),
+        (google-plus, $google-plus-color),
+        (instagram, $instagram-color),
+        (linkedin, $linkedin-color),
+        (pinterest, $pinterest-color),
+        (rss, $rss-color),
+        (tumblr, $tumblr-color),
+        (twitter, $twitter-color),
+        (vimeo, $vimeo-color),
+        (youtube, $youtube-color),
+        (mixcloud, $mixcloud-color),
+        (github, $github-color),
+        (soundcloud, $soundcloud-color),
+        (lastfm, $lastfm-color);
     outline: none !important;
 	color: $link-color;
 	&:hover {

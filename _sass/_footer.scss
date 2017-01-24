@@ -25,7 +25,9 @@
 
 .social-icons {
   margin: 0.5em;
+  font-size: 0.7em;
   a {
+    color: #808080 !important;
     padding: 4px 4px;
     &:hover {
       color: $black;
