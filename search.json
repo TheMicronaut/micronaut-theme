@@ -11,7 +11,8 @@ sitemap: false
       "date"        : "{{ post.date | date: "%B %d, %Y" }}",
       "excerpt"   : "{{ post.excerpt | markdownify | strip_html | strip_newlines | escape_once | remove: '\[' | remove: '\]' | remove: '\(' | remove: '\)' }}",
       "category" : "{{ post.categories | first }}",
-      "tags"        : "{{ post.tags  | array_to_sentence_string }}"
+      "categories" : "{{ post.categories | join: ' ' }}",
+      "tags"        : "{{ post.tags  | join: ' ' }}"
     }
   {% endif %}
 {% endfor %}

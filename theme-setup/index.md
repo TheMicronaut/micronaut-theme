@@ -3,6 +3,7 @@ layout: page
 title: Theme Setup
 excerpt: "Instructions on how to install and customize the Jekyll theme So Simple, including modifications and customizations by Aleh"
 modified: 2016-07-01T11:30:41.231140-04:00
+search_omit: true
 image:
   feature: blue-splash.jpg
 ---
