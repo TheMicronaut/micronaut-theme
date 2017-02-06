@@ -198,9 +198,9 @@ figcaption {
     margin-top: 5px;
     @include media($large) {
         position: absolute;
-        top: 1px;
-        right: (3 * $column + $gutter) * -1;
-        padding-top: 8px;
+        top: 0px;
+        right: -1 * (3 * $column + $gutter);
+        padding-top: 5px;
         padding-left: 0;
         padding-right: 0;
         width: (3 * $column);
@@ -213,7 +213,7 @@ figcaption {
             left: 0;
             width: 100%;
             height: 1px;
-            background: lighten($black, 70);
+            background: lighten($black, 50);
         }
     }
     a {

@@ -135,7 +135,7 @@ span + .entry-title {
   text-transform: uppercase;
   font-family: $alt-font;
   @include font-size(14);
-  border-top: 1px solid lighten($black, 70);
+  border-top: 1px solid lighten($black, 50);
   padding-top: 4px;
 	a {
 		color: $text-color;
