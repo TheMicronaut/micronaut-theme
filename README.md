@@ -9,9 +9,9 @@ See a [live Demo of Micronaut's tuned So Simple Theme](http://themicronaut.githu
 See a [live version of the original So Simple Theme](http://mmistakes.github.io/so-simple-theme/) hosted on GitHub.
 
 ## Screenshots
-![example main page](http://themicronaut.github.io/images/main-page.png)
-![example post1](http://themicronaut.github.io/images/example-post1.png)
-![example post2](http://themicronaut.github.io/images/example-post2.png)
+![example main page](/images/main-page.png)
+![example post1](/images/example-post1.png)
+![example post2](/images/example-post2.png)
 
 ## Notable Extensions of the So Simple Theme:
 * Timeline
