@@ -27,6 +27,7 @@ See a [live version of the original So Simple Theme](http://mmistakes.github.io/
 For details on theme extensions, visit [theme-setup](http://themicronaut.github.io/theme-setup/#alehs-customizations)
 
 ## Notable Modifications of the So Simple Theme:
+* New Navigation bar
 * Typography
 * Author's bio-photo adaptation
 * Images & Figcaptions
