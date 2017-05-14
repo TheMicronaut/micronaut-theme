@@ -1,15 +1,13 @@
 ---
-layout: page
+layout: archivepage
+categories: [stories]
 title: Stories
 excerpt: "An archive of fictional stories sorted by date."
 hidelogo: true
 search_omit: true
+archive:
+  image: images/reading-man.gif
 ---
-<figure>
-    <img src="/images/reading-man.gif" alt="reading-man-image" class="center non-selectable" width="70%"/>
-</figure>
-<div class="no-print pull-right"><i class="fa fa-rss"></i> <a href="/feed.stories.xml" target="_blank">stories feed</a></div><br/>
-
 <ul class="post-list">
 {% for post in site.categories.stories %}
   <li>

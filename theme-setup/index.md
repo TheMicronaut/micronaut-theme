@@ -147,6 +147,8 @@ To set what links appear in the top navigation edit `_data/navigation.yml`. Use 
   url: http://mademistakes.com  
 ```
 
+**Note:** For Aleh's modified navigation bar customizations see [below](#alehs-customizations).
+
 ---
 
 ## Adding New Content
@@ -332,6 +334,21 @@ The only thing to look out for is the escaping of the backslash when using markd
 
 **Disclaimer:** Aleh is not a web designer, Michael instead, the creator of this theme is a great one. All credits and rights go to him. Aleh knows html, xml and json, bits of javascript, and is struggling hard with css. His only weapon is his experience in good software engineering practises. In order to not harass the original theme, Aleh tries to handle additions either in `_extras.scss` file or in their own .scss files. Alas, some of the modifications need to be done on the theme's own .scss files. All modifications and additions implemented on top of the so-simple-theme merely serve the purposes of Aleh and the Micronaut. If you have remarks, comments, improvements or suggestions, you are more than welcome to contact Aleh via any of his social channels.
 {:.notice}
+
+##### Navigation bar
+The original navigation bar is being replaced with a modern variant which enables more intuitive navigation throughout your site. The new navigation bar allows you to specify Font Awesome (fa) icons next to the title of each navigation entry. In  `_data/navigation.yml` file, you can specify an appropriate fa icon to be used for display. In the example below, the `fa-pencil` and the `fa-music` icons will be rendered in the navigation bar:
+
+```yaml
+- title: Blog
+  url: /blog/
+  icon: pencil
+
+- title: Music
+  url: /music/
+  icon: music
+```
+
+In case you need more customization of the navigation bar, you may always edit the `includes\navigation.html` file.
 
 ##### Typography
 Since I needed content in both English and Greek, we had to choose nice fonts that support both languages without jeopardizing the layout. I decided to adopt the [GFS Artemisia](https://www.ctan.org/pkg/gfsartemisia){:target="_blank"} fonts. GFS Artemisia is a relatively modern font, designed as a general purpose font in the same sense as Times is nowadays treated. The present version has been provided by the Greek Font Society and is under the terms of a free License. For the inital paragraph letters, I chose another font series named "Zallmancaps". The webfonts are all available on the github repository, so as to decouple the dependencies with webfont platforms, such as google fonts or fonts squirrel. Last but not least, I make limited use of the 'Philosopher' webfonts (by google) mainly for the menus, buttons, some headers, and footer notes. As for blockquotes, the "Truetypewritter PolyglOTT" OpenType fonts is used.

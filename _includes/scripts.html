@@ -128,6 +128,10 @@ $( "#comments" ).click(function() {
     $(this).attr('title', 'Image ['+alttext+'] Not Found.');
 });
 </script>
+<!-- menu button -->
+<script type="text/javascript">
+    new gnMenu( document.getElementById( 'gn-menu' ) );
+</script>
 <!-- xml data load -->
 {% if page.xmldata %}
 {% include templates/xmltemplates.xml %}

@@ -1,25 +1,29 @@
 # Site navigation links
 
-- title: Main
-  url: /
-
 - title: About
   url: /about/
+  icon: info
 
 - title: Blog
   url: /blog/
+  icon: pencil
 
 - title: Music
   url: /music/
+  icon: music
   
 - title: Stories
   url: /stories/
+  icon: book
 
 - title: Tags
   url: /tags/
+  icon: tags
 
 - title: Links
   url: /links/
+  icon: link
 
 - title: Search
   url: /search/
+  icon: search

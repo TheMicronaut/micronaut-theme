@@ -1,15 +1,13 @@
 ---
-layout: page
+layout: archivepage
+categories: [music]
 title: Music
-excerpt: "An archive of posts related to music sorted by date."
+excerpt: "An archive of music posts sorted by date."
 hidelogo: true
 search_omit: true
+archive:
+  image: images/dancing-man.gif
 ---
-<figure>
-    <img src="/images/dancing-man.gif" alt="dancing-man-image" class="center non-selectable" width="40%"/>
-</figure>
-<div class="no-print pull-right"><i class="fa fa-rss"></i> <a href="/feed.music.xml" target="_blank">music feed</a></div><br/>
-
 <ul class="post-list">
 {% for post in site.categories.music %}
   <li>

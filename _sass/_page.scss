@@ -121,10 +121,14 @@ span + .entry-title {
 
 .entry-wrapper {
 	@include outer-container;
-	margin-top: 0;
+	margin-top: 5em;
 	margin-bottom: 1em;
 	padding-right: $gutter;
 	padding-left: $gutter;
+}
+
+footer.entry-wrapper {
+    margin-top: 0;
 }
 
 /* page/post meta content (date, author, etc) */

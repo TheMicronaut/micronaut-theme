@@ -14,7 +14,7 @@ $doc-font-size            : 16;
 $doc-line-height          : 24;
 
 $border-radius            : 3px;
-
+$main-menu-height         : 60px;
 
 // set-up the body font-size / line-height
 body {
@@ -33,7 +33,9 @@ $white                    : #fff;
 $black                    : #000;
 $accent-color             : $black;
 $link-color               : #222;
-$navarrows-color          : #696969;
+
+$navigation-arrows-color  : #696969;
+$navigation-bar-color     : #fbfbfb;
 
 $table-border-color       : $border-color;
 $table-border             : 1px solid $table-border-color;

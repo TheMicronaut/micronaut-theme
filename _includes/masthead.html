@@ -1,0 +1,31 @@
+{% if page.author %}
+	{% assign authorImage = site.data.authors[page.author].avatar %}
+	{% assign authorName = site.data.authors[page.author].name %}
+	{% if authorImage == null %}
+		{% assign authorImage = "/bio-photo.jpg" %}
+	{% endif %}
+{% else %}
+    {% if page.hidelogo == null or page.hidelogo != true %}
+		{% assign authorImage = site.logo %}
+		{% assign authorName = site.title %}
+	{% else %}
+		{% assign authorImage = null %}
+	{% endif %}
+{% endif %}
+
+{% if page.image.feature %}<header class="masthead">
+	{% if authorImage != null %}
+		<div class="wrap">
+			<a href="{{ site.url }}/" class="site-logo" rel="home" title="{{ authorName }}"><img src="{{ site.url }}/images/{{ authorImage }}" width="200" height="200" alt="{{ authorName }} image" class="fadeInDown"></a>
+		</div>
+	{% endif %}
+</header><!-- /.masthead -->
+{% else %}{% if page.hidelogo == null or page.hidelogo != true %}<header class="masthead">
+	<div class="wrap">
+      {% if authorImage != null %}
+  		<a href="{{ site.url }}/" class="site-logo" rel="home" title="{{ authorName }}"><img src="{{ site.url }}/images/{{ authorImage }}" width="200" height="200" alt="{{ authorName }} logo" class="fadeInDown"></a>
+      {% endif %}
+      <h1 class="site-title fadeIn"><a href="{{ site.url }}/">{{ site.title }}</a></h1>
+     <h2 class="site-description fadeIn" itemprop="description">{{ site.description }}</h2>
+	</div>
+</header>{% endif %}<!-- /.masthead-->{% endif %}

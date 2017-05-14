@@ -1,47 +1,38 @@
-<div class="navigation-wrapper no-print">
-	<nav role="navigation" id="site-nav" class="animated drop">
-	    <ul>
-		  {% for link in site.data.navigation %}
-		    {% if link.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.url %}{% endif %}
-		    <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
-		  {% endfor %}
-          <li><a href="{{ site.url }}/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss"></i> Feed</a></li>
-	    </ul>
-	</nav>
-</div><!-- /.navigation-wrapper -->
+<ul id="gn-menu" class="gn-menu-main">
+    <li class="gn-trigger">
+        <div id="nav-icon" class="gn-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav role="navigation" class="gn-menu-wrapper">
+            <div class="gn-scroller">
+                <ul class="gn-menu">
+                  {% for link in site.data.navigation %}
+                    {% if link.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.baseurl %}{% endif %}
+                    <li>
+                        <a class="gn-icon fa-{{ link.icon }}" href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a>
+                        <!-- example of submenu -->
+                        <!-- <ul class="gn-submenu">
+                            <li><a class="gn-icon gn-icon-illustrator">Illustrations</a></li>
+                            <li><a class="gn-icon gn-icon-photoshop">Photoshop files</a></li>
+                        </ul> -->
+                    </li>
+                  {% endfor %}
+                  <li>
+                    <a class="gn-icon fa-rss" href="{{ site.baseurl }}/feed.xml" title="Atom/RSS feed">Feed</a></li>
+                </ul>
+            </div><!-- /gn-scroller -->
+        </nav>
+    </li>
+    {% if page.categories[0] %}<li><a href="{{ site.baseurl }}/{{ page.categories[0] }}">{{ page.categories[0] }}</a></li>{% endif %}
+    {% if page.layout == "archivepage" %}<li><a class="codrops-icon fa-rss" href="{{ site.baseurl }}/feed.{{ page.categories[0] }}.xml" target="_blank" title="{{ page.categories[0] }} rss" rel="rss"><span>Subscribe</span></a></li>{% endif %}
+    {% if page.previous %}<li><a class="codrops-icon fa-long-arrow-left" href="{{ site.baseurl }}{{ page.previous.url }}" title="{{ page.previous.title }}" rel="prev"><span>Previous</span></a></li>{% endif %}
+    {% if page.next %}<li><a class="codrops-icon gn-icon-next" href="{{ site.baseurl }}{{ page.next.url }}" title="{{ page.next.title }}" rel="next"><span>Next</span></a></li>{% endif %}
+    {% if page.url != "/" %}<li><a class="codrops-icon fa-home" href="{{ site.baseurl }}/"><span>Home</span></a></li>{% endif %}
+    {% if page.url == "/" %}<li><a class="codrops-icon fa-info" href="{{ site.baseurl }}/about"><span>About</span></a></li>{% endif %}
+    {% if page.url == "/" %}<li><a class="codrops-icon fa-search" href="{{ site.baseurl }}/search"><span>Search</span></a></li>{% endif %}    
+</ul>
 
 {% include browser-upgrade.html %}
-
-{% if page.author %}
-	{% assign authorImage = site.data.authors[page.author].avatar %}
-	{% assign authorName = site.data.authors[page.author].name %}
-	{% if authorImage == null %}
-		{% assign authorImage = "/bio-photo.jpg" %}
-	{% endif %}
-{% else %}
-    {% if page.hidelogo == null or page.hidelogo != true %}
-		{% assign authorImage = site.logo %}
-		{% assign authorName = site.title %}
-	{% else %}
-		{% assign authorImage = null %}
-	{% endif %}
-{% endif %}
-
-{% if page.image.feature %}<header class="masthead">
-	{% if authorImage != null %}
-		<div class="wrap">
-			<a href="{{ site.url }}/" class="site-logo" rel="home" title="{{ authorName }}"><img src="{{ site.url }}/images/{{ authorImage }}" width="200" height="200" alt="{{ authorName }} image" class="animated fadeInDown"></a>
-		</div>
-	{% endif %}
-</header><!-- /.masthead -->
-{% else %}{% if page.hidelogo == null or page.hidelogo != true %}<header class="masthead">
-	<div class="wrap">
-      {% if authorImage != null %}
-  		<a href="{{ site.url }}/" class="site-logo" rel="home" title="{{ authorName }}"><img src="{{ site.url }}/images/{{ authorImage }}" width="200" height="200" alt="{{ authorName }} logo" class="animated fadeInDown"></a>
-      {% endif %}
-      <h1 class="site-title animated fadeIn"><a href="{{ site.url }}/">{{ site.title }}</a></h1>
-     <h2 class="site-description animated fadeIn" itemprop="description">{{ site.description }}</h2>
-	</div>
-</header>{% endif %}<!-- /.masthead-->{% endif %}
-
-<div class="js-menu-screen menu-screen"></div>

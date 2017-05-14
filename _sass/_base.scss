@@ -29,9 +29,6 @@ body {
   font-family: $base-font;
   color: $text-color;
   background-color: $body-color;
-  @media screen {
-    border-top: 5px solid $black;
-  }
 }
 
 /*

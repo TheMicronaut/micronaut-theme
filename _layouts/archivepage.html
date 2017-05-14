@@ -18,6 +18,11 @@
         </div>
     {% endif %}
     <div class="entry-wrapper">
+      {% if page.archive.image %}
+      <figure>
+        <img src="{{ site.url }}/{{ page.archive.image }}" alt="{{ page.archive.image }}" class="center non-selectable"/>
+      </figure>
+      {% endif %}
       <header class="entry-header">
         <h1 class="entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %}</h1>
       </header>

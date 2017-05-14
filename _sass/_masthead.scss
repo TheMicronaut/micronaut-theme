@@ -3,12 +3,12 @@
    ========================================================================== */
 
 .masthead {
-  margin-top: 40px;
+  margin-top: 60px;
   @include clearfix;
 
-  @include media($medium) {
-    margin-top: 0;
-  }
+  //@include media($medium) {
+  //  margin-top: 0;
+  //}
 
   .wrap {
     text-align: center;
