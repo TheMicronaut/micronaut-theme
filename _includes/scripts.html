@@ -185,7 +185,9 @@ function RenderEmbeddedTimeline(xml) {
         start_at_end: true,
         dragging: true,
         scale_factor: 10,
-        duration: 800,
+        initial_zoom: 2,
+        duration: 600,
+        //slide_padding_lr: 90,
         hash_bookmark: true
       }	
     timeline = new TL.Timeline('timeline-js', jsonItems, additionalOptions);

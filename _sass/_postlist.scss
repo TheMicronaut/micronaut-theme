@@ -128,7 +128,8 @@ $gray-lighter:          lighten(#000, 93.5%) !default; // #eee
 
   .postArticle-image {
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    background-repeat: no-repeat;
     padding-top: 100%;
     -webkit-transition-property: all, left, top, width;
     -webkit-transition-duration: .5s, .1s, .1s, .1s;
@@ -158,7 +159,7 @@ $gray-lighter:          lighten(#000, 93.5%) !default; // #eee
   .block-postMeta {
     position: absolute;
     bottom: 0;
-    padding-bottom: 5px;
+    padding-bottom: 30px;
     color: #a1a1a1;
     font-size: 0.9rem;
   }
