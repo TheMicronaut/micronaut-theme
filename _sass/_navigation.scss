@@ -54,7 +54,7 @@
 
 .gn-menu-main li.gn-trigger {
     position: relative;
-    width: 60px;
+    width: 50px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -70,7 +70,7 @@
 }
 
 .gn-menu-main > li > a {
-    padding: 0 10px;
+    padding: 0 8px;
     text-transform: uppercase;
     //letter-spacing: 1px;
 }
@@ -312,10 +312,10 @@ input.gn-search:focus {
 // Navigation Button
 //
 #nav-icon {
-  width: 70%;
-  height: 33px;
+  width: 60%;
+  height: $main-menu-height;
   position: relative;
-  margin: 15px auto;
+  margin: 20% auto;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -330,7 +330,7 @@ input.gn-search:focus {
 #nav-icon span {
   display: block;
   position: absolute;
-  height: 6px;
+  height: 4px;
   width: 100%;
   background: $black;
   border-radius: 3px;
@@ -351,15 +351,15 @@ input.gn-search:focus {
 }
 
 #nav-icon span:nth-child(2),#nav-icon span:nth-child(3) {
-  top: 13px;
+  top: 20%;
 }
 
 #nav-icon span:nth-child(4) {
-  top: 26px;
+  top: 40%;
 }
 
 #nav-icon.open span:nth-child(1) {
-  top: 13px;
+  top: 20%;
   width: 0%;
   left: 50%;
 }
@@ -379,7 +379,7 @@ input.gn-search:focus {
 }
 
 #nav-icon.open span:nth-child(4) {
-  top: 13px;
+  top: 20%;
   width: 0%;
   left: 50%;
 }
