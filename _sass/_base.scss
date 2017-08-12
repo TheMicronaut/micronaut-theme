@@ -193,6 +193,12 @@ figcaption {
     text-align: center;
     clear: both;
     margin-top: 5px;
+    &:before {
+      font-family: 'FontAwesome';
+      font-style: normal;
+      content: "\f030";
+      padding-right: 4px;
+    }
     @include media($large) {
         position: absolute;
         top: 0px;
