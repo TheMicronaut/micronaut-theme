@@ -26,12 +26,15 @@
 }
 
 .gn-menu-main a {
-		display: block;
-		height: 100%;
-		color: $text-color;
-		text-decoration: none;
-		cursor: pointer;
+        display: block;
+        height: 100%;
+        color: $text-color;
+        text-decoration: none;
+        cursor: pointer;
         text-transform: uppercase;
+        &:hover {
+          background: $border-color;
+        }
 }
 
 .no-touch .gn-menu-main a:hover,
@@ -87,13 +90,12 @@
     bottom: 0;
     left: 0;
     overflow: hidden;
-    width: 60px;
-    //border-top: 1px solid #c6d0da;
-    border-bottom: 1px solid #c6d0da;
+    width: 50px;
+    border-right: 1px solid $border-color;
     background: $navigation-bar-color;
-    -webkit-transform: translateX(-60px);
-    -moz-transform: translateX(-60px);
-    transform: translateX(-60px);
+    -webkit-transform: translateX(-50px);
+    -moz-transform: translateX(-50px);
+    transform: translateX(-50px);
     -webkit-transition: -webkit-transform 0.3s, width 0.3s;
     -moz-transition: -moz-transform 0.3s, width 0.3s;
     transition: transform 0.3s, width 0.3s;
@@ -139,7 +141,7 @@
 input.gn-search {
 		position: relative;
 		z-index: 10;
-		padding-left: 60px;
+		padding-left: 50px;
 		outline: none;
 		border: none;
 		background: transparent;
@@ -209,7 +211,7 @@ input.gn-search:focus {
 
 .gn-icon::before {
 		display: inline-block;
-		width: 60px;
+		width: 50px;
 		text-align: center;
 		text-transform: none;
 		font-weight: normal;
