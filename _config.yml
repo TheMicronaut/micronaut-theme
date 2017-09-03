@@ -1,9 +1,9 @@
 # Site wide configuration
 
-title: Micronaut Tuned So Simple Theme
+title: Micronaut Modified So Simple Theme
 locale: en_US
 timezone: CET
-description: Site Description
+description: Theme based on So Simple Theme
 logo: site-logo.svg
 search: true
 url: #your-site-url

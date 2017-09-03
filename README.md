@@ -1,12 +1,12 @@
-# The Micronaut's tuned So Simple Theme 
+# The Micronaut's modifed So Simple Theme 
 
-The theme of Micronaut's blog is based upon the  **So Simple Theme**  by designer slash illustrator [Michael Rose](http://mademistakes.com).
+Micronaut's modified So Simple Theme is based upon the  simplistic **So Simple Theme**  originally created by [Michael Rose](http://mademistakes.com).
 
-Micronaut's modified So Simple Theme is a minimalistic theme (across the same lines of the So Simple Theme) that offers simple and clean layout while emphasizing typography. Thus, the theme is ideal for sites and blogs that focus on content rather than on visual elements and delights.
+Micronaut's modified So Simple Theme is a minimalistic theme (across the same lines of the So Simple Theme) that offers simple and clean layout while emphasizing typography. Thus, the theme is ideal for sites and blogs that focus on content rather than on visual delights.
 
-See a [live Demo of Micronaut's tuned So Simple Theme](http://themicronaut.github.io/) hosted on GitHub.
+See a [live Demo](http://themicronaut.github.io/) of Micronaut's modified So Simple Theme hosted on GitHub.
 
-See a [live version of the original So Simple Theme](http://mmistakes.github.io/so-simple-theme/) hosted on GitHub.
+See a [live version](http://mmistakes.github.io/so-simple-theme/) of the original So Simple Theme hosted on GitHub.
 
 ## Screenshots
 ![example main page](https://raw.githubusercontent.com/TheMicronaut/micronaut-theme/master/images/main-page.png)

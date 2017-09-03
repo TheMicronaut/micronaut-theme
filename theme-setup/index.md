@@ -336,7 +336,9 @@ The only thing to look out for is the escaping of the backslash when using markd
 {:.notice}
 
 ##### Navigation bar
-The original navigation bar is being replaced with a modern variant which enables more intuitive navigation throughout your site. The new navigation bar allows you to specify Font Awesome (fa) icons next to the title of each navigation entry. In  `_data/navigation.yml` file, you can specify an appropriate fa icon to be used for display. In the example below, the `fa-pencil` and the `fa-music` icons will be rendered in the navigation bar:
+So Simple Theme offers customization of the navigation bar through the `_data/navigation.yml` file. You are free to edit this navigation file according to your needs. This file offers your customizability over the menu entries.
+
+Micronaut's modified theme has substituted the original navigation bar design with a modern variant, which enables intuitive navigation throughout your site. The new navigation bar allows you to specify icons next to the title of each navigation entry (Font Awesome icons, or better known as -fa- icons). The icons can be set in  `_data/navigation.yml` file. In the example below, `fa-pencil` and `fa-music` icons will be rendered in the navigation bar, right before the 'Blog' and 'Music' menu items respectively:
 
 ```yaml
 - title: Blog
@@ -348,7 +350,8 @@ The original navigation bar is being replaced with a modern variant which enable
   icon: music
 ```
 
-In case you need more customization of the navigation bar, you may always edit the `includes\navigation.html` file.
+Last but not least, in case you need even more control on adapting the navigation bar, you may change the `includes\navigation.html` file according to your needs. For this, you might need some html knowledge and understanding of the css theme for the navigation bar.
+
 
 ##### Typography
 Since I needed content in both English and Greek, we had to choose nice fonts that support both languages without jeopardizing the layout. I decided to adopt the [GFS Artemisia](https://www.ctan.org/pkg/gfsartemisia){:target="_blank"} fonts. GFS Artemisia is a relatively modern font, designed as a general purpose font in the same sense as Times is nowadays treated. The present version has been provided by the Greek Font Society and is under the terms of a free License. For the inital paragraph letters, I chose another font series named "Zallmancaps". The webfonts are all available on the github repository, so as to decouple the dependencies with webfont platforms, such as google fonts or fonts squirrel. Last but not least, I make limited use of the 'Philosopher' webfonts (by google) mainly for the menus, buttons, some headers, and footer notes. As for blockquotes, the "Truetypewritter PolyglOTT" OpenType fonts is used.
