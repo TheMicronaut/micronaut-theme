@@ -1,12 +1,12 @@
 {% if page.image.feature %}
 	{% assign imageUrl = site.url | append:'/images/' | append: page.image.feature %}
 {% elsif page.image.thumbnail %}
-	{% assign image = page.image.thumbnail %}
-		{% if image contains 'http' %}
-			{% assign imageUrl = image %}
-		{% else %}
-			{% assign imageUrl = site.external_data_url | append: image %}
-		{% endif %}
+    {% assign imageURLType = page.image.thumbnail | slice: 0 %}
+    {% if imageURLType == "/" %}
+        {% assign imageUrl = site.external_data_url | append: page.image.thumbnail %}
+    {% else %}
+        {% assign imageUrl = 'http://' | append: page.image.thumbnail %}
+    {% endif %}
 {% else %}
 	{% assign imageUrl = site.url | append:'/images/' | append: site.logo %}
 {% endif %}

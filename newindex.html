@@ -15,12 +15,12 @@ search_omit: true
                 {% if post.image.feature %}
 					{% assign imageUrl = site.url | append:'/images/' | append: post.image.feature %}
                 {% elsif post.image.thumbnail %}
-					{% assign image = post.image.thumbnail %}
-						{% if image contains 'http' %}
-							{% assign imageUrl = image %}
-						{% else %}
-							{% assign imageUrl = site.external_data_url | append: image %}
-						{% endif %}
+                    {% assign imageURLType = post.image.thumbnail | slice: 0 %}
+                    {% if imageURLType == "/" %}
+                        {% assign imageUrl = site.external_data_url | append: post.image.thumbnail %}
+                    {% else %}
+                        {% assign imageUrl = 'http://' | append: post.image.thumbnail %}
+                    {% endif %}
 				{% else %}
 					{% assign imageUrl = site.url | append:'/images/' | append: site.logo %}
                 {% endif %}
