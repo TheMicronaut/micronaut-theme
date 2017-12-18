@@ -44,12 +44,13 @@
 // Central quote
 // --------------------------------------------------
 div .central-quote {
+    @extend .non-selectable;
     background:
         url(/images/divider-top.png) top center no-repeat,
         url(/images/divider-bottom.png) bottom center no-repeat;
     background-size: contain;
     color: #222;
-    font-family:  $quote-font;
+    font-family: $central-quote-font;
     font-style: italic;	
     line-height: 1.2em; 
 	padding: 30px 30px 40px;
@@ -79,11 +80,13 @@ div .central-quote {
 // non-selectable element
 // --------------------------------------------------
 .non-selectable {
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none; 
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 // Box with header
