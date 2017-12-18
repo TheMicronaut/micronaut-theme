@@ -1,2 +1,3 @@
-explorer  http://127.0.0.1:4000/
-bundle exec jekyll serve
+rmdir _site /s /q
+rmdir .sass-cache /s /q
+bundle exec jekyll serve --incremental --open-url --trace --force_polling

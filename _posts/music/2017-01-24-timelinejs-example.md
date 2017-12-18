@@ -13,7 +13,7 @@ xmldata:
   data: /xmldata/example-data.xml
   template: timelinejs
 ---
-The following page demonstrates how to integrate [Knight Lab's TimelineJs](https://timeline.knightlab.com){:target="_blank"} on your blog. The original data is stored as xml file on this repository, and they are automatically loaded and parsed via javascript.
+The following page demonstrates how to integrate [Knight Lab's TimelineJs](https://timeline.knightlab.com){:target="_blank"} on your blog. The original data is stored as xml file on this repository, and they are automatically loaded and parsed via javascript. :simple_smile:
 
 **Note:** You may check the source xml data [<i class="fa fa-link"></i>here]({{ page.xmldata.data }}){:target="_blank"}.
 {:.notice}
