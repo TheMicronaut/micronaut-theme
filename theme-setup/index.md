@@ -4,6 +4,7 @@ title: Theme Setup
 excerpt: "Instructions on how to install and customize the Jekyll theme So Simple, including modifications and customizations by Aleh"
 modified: 2016-07-01T11:30:41.231140-04:00
 search_omit: true
+mathjax: true
 image:
   feature: blue-splash.jpg
 ---
@@ -313,15 +314,15 @@ To exclude posts/pages from search results add `search_omit: true` to their YAML
 
 To enable MathJax support be sure Kramdown is your Markdown flavor of choice and MathJax is set to true in your `_config.yml` file. Next to that, add `mathjax: true` to the YAML Front Matter of the page or post that the math is to be added. 
 
-~~~
+```yaml
 markdown: kramdown
 mathjax: true
-~~~
+```
 
-~~~
+```
 Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
 \\[ \frac{1}{n^{2}} \\]
-~~~
+```
 
 Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
 \\[ \frac{1}{n^{2}} \\]
