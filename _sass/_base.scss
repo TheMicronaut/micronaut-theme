@@ -159,8 +159,8 @@ figure {
   }
   @include clearfix;
   img, iframe {
-	outline: none !important;
-	margin-bottom: 1rem; // + ($doc-line-height / $doc-font-size);
+        outline: none !important;
+        margin-bottom: 0.5rem; // + ($doc-line-height / $doc-font-size);
     @include media($large) {
 		margin-bottom: 0;
 	}
@@ -169,8 +169,8 @@ figure {
 	outline: none !important;
     img {
       &:hover {
-        -webkit-filter: drop-shadow(1px 1px 2px black);
-        filter: drop-shadow(1px 1px 2px black);
+        -webkit-filter: sepia(100%);
+        filter: sepia(100%);
       }
     }
   }
