@@ -98,7 +98,7 @@ span + .entry-title {
 
 .entry-title {
 	font-family: $base-font;
-	@include font-size(26,yes,26);
+	@include font-size(24,yes,24);
 	font-weight: 400;
 	letter-spacing: -1px;
 
@@ -108,11 +108,11 @@ span + .entry-title {
 	}
 
 	@include media($medium) {
-		@include font-size(36,yes,36);
+		@include font-size(32,yes,32);
 	}
 
 	@include media($large) {
-		@include font-size(46,yes,46);
+		@include font-size(40,yes,40);
 	}
 }
 
