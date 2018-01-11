@@ -98,7 +98,7 @@ $gray-lighter:          lighten(#000, 93.5%) !default; // #eee
   li {
     .postArticle-title {
       font-size: $font-XS;
-      line-height: 1.5;
+      line-height: 1.2;
     }
   }
 
@@ -166,8 +166,8 @@ $gray-lighter:          lighten(#000, 93.5%) !default; // #eee
 
   .postArticle-title,
   .block-postMeta {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 
