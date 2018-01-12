@@ -42,6 +42,7 @@
         {% if page.ads == true %}{% include ad-sidebar.html %}<!-- /.google-ads -->{% endif %}
       </footer>
       <div class="entry-content">
+        {% if page.showexcerpt %}<div class="post-excerpt">{{ page.excerpt }}</div>{% endif %}
         {{ content }}
         {% if page.pollid %} <div id="poll">{% include polls/poll-{{page.pollid}}.html %}</div> {% endif %}
         {% if page.relatedposts %}{% include related-posts.html %}{% endif %}	
