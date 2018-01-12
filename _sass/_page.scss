@@ -244,25 +244,29 @@ footer.entry-wrapper {
    post-excerpt
    ========================================================================== */
 
-.post-excerpt {
+#post-excerpt {
 	font-family: $heading-font;
     padding-left: 25%;
     text-align: right;
-}
-.post-excerpt p:first-child {
-    text-indent:-16px;
-}
-.post-excerpt p:first-child:before {
-    font-family: "Philosopher";
-    content:"\201C"; 
-    line-height:1px;
-	font-size: 2rem;
-}
-.post-excerpt p:last-child:after {
-    font-family: "Philosopher";
-    content:"\201D"; 
-    line-height:1px;
-	font-size: 2rem;
+    margin-bottom: 1rem;
+    
+    &:before {
+      font-family: "Philosopher";
+      content:"\201C"; 
+      line-height:1px;
+      font-size: 2.2rem;
+      font-style: italic;
+      vertical-align: middle;
+    }
+    
+    &:after {
+      font-family: "Philosopher";
+      content:"\201D"; 
+      line-height:1px;
+	  font-size: 2.2rem;
+      font-style: italic;
+      vertical-align: middle;
+    }
 }
 
 /*
