@@ -9,19 +9,20 @@
         <nav role="navigation" class="gn-menu-wrapper">
             <div class="gn-scroller">
                 <ul class="gn-menu">
-                  {% for link in site.data.navigation %}
-                    {% if link.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.baseurl %}{% endif %}
-                    <li>
+                <!-- example -->
+                <!--<li>
                         <a class="gn-icon fa-{{ link.icon }}" href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a>
-                        <!-- example of submenu -->
-                        <!-- <ul class="gn-submenu">
+                        <ul class="gn-submenu">
                             <li><a class="gn-icon gn-icon-illustrator">Illustrations</a></li>
                             <li><a class="gn-icon gn-icon-photoshop">Photoshop files</a></li>
-                        </ul> -->
+                        </ul>
                     </li>
+                -->
+                  {% for link in site.data.navigation %}
+                    {% if link.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.baseurl %}{% endif %}
+                    <li><a class="gn-icon fa-{{ link.icon }}" href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
                   {% endfor %}
-                  <li>
-                    <a class="gn-icon fa-rss" href="{{ site.baseurl }}/feed.xml" title="Atom/RSS feed">Feed</a></li>
+                  <li><a class="gn-icon fa-rss" href="{{ site.baseurl }}/feed.xml" title="Atom/RSS feed">Feed</a></li>
                 </ul>
             </div><!-- /gn-scroller -->
         </nav>

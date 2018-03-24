@@ -17,6 +17,7 @@ highlighter: rouge
 sass:
   sass_dir: _sass
   style: compressed
+
 plugins:
   - jekyll-sitemap
   - jekyll-gist
@@ -41,6 +42,16 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 paginate: 20
 paginate_path: /posts/page:num
 
+# See http://jch.penibelst.de/ for settings.
+compress_html:
+  clippings: []
+  comments: []
+  endings: []
+  ignore:
+    envs: []
+  blanklines: true
+  profile: false
+  startings: []
 
 # Site owner
 owner:

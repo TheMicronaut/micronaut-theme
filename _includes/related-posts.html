@@ -7,17 +7,13 @@
           <li class="simpleblock">
             <div class="postArticle-wrapper">
               <article class="postArticle postArticle--short">
-                {% if post.image.feature %}
-                    {% assign imageUrl = site.url | append:'/images/' | append: post.image.feature %}
+                {% if post.image.feature %}{% assign imageUrl = site.url | append:'/images/' | append: post.image.feature %}
                 {% elsif post.image.thumbnail %}
                     {% assign imageURLType = post.image.thumbnail | slice: 0 %}
-                    {% if imageURLType == "/" %}
-                        {% assign imageUrl = site.external_data_url | append: post.image.thumbnail %}
-                    {% else %}
-                        {% assign imageUrl = 'http://' | append: post.image.thumbnail %}
+                    {% if imageURLType == "/" %}{% assign imageUrl = site.external_data_url | append: post.image.thumbnail %}
+                    {% else %}{% assign imageUrl = 'http://' | append: post.image.thumbnail %}
                     {% endif %}
-                {% else %}
-                    {% assign imageUrl = site.url | append:'/images/' | append: site.logo %}
+                {% else %}{% assign imageUrl = site.url | append:'/images/' | append: site.logo %}
                 {% endif %}
                 <a href="{{ post.url }}" target=”_blank”>
                   <div class="postArticle-image desaturate" style="background-image:url('{{ imageUrl }}')">
