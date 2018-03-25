@@ -14,9 +14,10 @@ layout: compress
 {% include masthead.html %}
 <div id="main" role="main">
   <article class="entry">
+    {% assign title = page.title | markdownify | strip_html %}
     {% if page.image.feature %}
         <div class="entry-feature-image-container">
-          <img src="{{ site.url }}/images/{{ page.image.feature }}" class="entry-feature-image" alt="{{ page.title }}" {% if site.logo == null %}style="margin-top:0;"{% endif %}>
+          <img src="{{ site.url }}/images/{{ page.image.feature }}" class="entry-feature-image" alt="{{ title }}" {% if site.logo == null %}style="margin-top:0;"{% endif %}>
           {% if page.image.credit %}<div class="image-credit bottom-right"><a href="http://{{ page.image.creditlink }}" target="_blank">{{ page.image.credit }}</a></div>{% endif %}
         </div>
     {% endif %}
@@ -27,7 +28,7 @@ layout: compress
       </figure>
       {% endif %}
       <header class="entry-header">
-        <h1 class="entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %}</h1>
+        <h1 class="entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ title }}{% endif %}</h1>
       </header>
       <div class="entry-content">
         {{ content }}

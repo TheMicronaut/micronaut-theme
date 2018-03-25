@@ -14,9 +14,10 @@ layout: compress
 {% include masthead.html %}
 <div id="main" role="main">
   <article class="hentry">
+    {% assign title = page.title | markdownify | strip_html %}
     {% if page.image.feature %}
         <div class="entry-feature-image-container">
-          <img src="{{ site.url }}/images/{{ page.image.feature }}" class="entry-feature-image" alt="{{ page.title }}" {% if site.logo == null %}style="margin-top:0;"{% endif %}>
+          <img src="{{ site.url }}/images/{{ page.image.feature }}" class="entry-feature-image" alt="{{ title }}" {% if site.logo == null %}style="margin-top:0;"{% endif %}>
           {% if page.image.credit %}<div class="image-credit bottom-right"><a href="http://{{ page.image.creditlink }}" target="_blank">{{ page.image.credit }}</a></div>{% endif %}
         </div>
     {% endif %}
@@ -26,9 +27,9 @@ layout: compress
          {% if page.tags %}<i class="fa fa-tags"></i>&nbsp;{% endif %}{% for tag in page.tags %}<li><a href="{{ site.url }}/tags/#{{ tag }}" title="Pages tagged {{ tag }}">{{ tag }}</a></li>{% endfor %}
         </ul>
         {% if page.link %}
-          <h1 class="entry-title"><a href="{{ page.link }}">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %} <span class="link-arrow">&rarr;</span></a></h1>
+          <h1 class="entry-title"><a href="{{ page.link }}">{% if page.headline %}{{ page.headline }}{% else %}{{ title }}{% endif %} <span class="link-arrow">&rarr;</span></a></h1>
         {% else %}
-          <h1 class="entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %}</h1>
+          <h1 class="entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ title }}{% endif %}</h1>
         {% endif %}
       </header>
       <footer class="entry-meta">
@@ -39,7 +40,7 @@ layout: compress
         <span class="author vcard">By <span class="fn">{{ author.name }}</span></span>
         <span class="entry-date date published" title="Published on {{ page.date | date_to_rfc822 }}"><time datetime="{{ page.date | date_to_xmlschema }}"><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;{{ page.date | date: "%B %d, %Y" }}</time></span>
         {% if page.modified %}<span class="entry-date date modified updated" title="Modified on {{ page.modified | date_to_rfc822 }}"><time datetime="{{ page.modified }}"><i class="fa fa-pencil"></i>&nbsp;&nbsp;{{ page.modified | date: "%B %d, %Y" }}</time></span>{% endif %}
-        {% capture readtime %}{{ page.content | number_of_words | plus:91 | divided_by:150.0 | append:'.' | split:'.' | first }}{% endcapture %}
+        {% capture readtime %}{{ page.content | strip_html | number_of_words | plus:91 | divided_by:150.0 | append:'.' | split:'.' | first }}{% endcapture %}
         <span class="entry-readingtime" title="{{ page.content | number_of_words }} words"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. reading </span>
         {% if site.owner.disqus-shortname and page.comments or site.comments %}<span class="entry-comments" title="Click to navigate to comments"><i class="fa fa-comments-o"></i>&nbsp;&nbsp;<a href="{{ page.url }}#comments" data-disqus-identifier="{{ page.path | split:'/' | last | cgi_escape }}">View Comments</a></span>{% endif %}
         {% if page.ads == true %}{% include ad-sidebar.html %}<!-- /.google-ads -->{% endif %}
