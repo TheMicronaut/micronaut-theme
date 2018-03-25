@@ -43,8 +43,8 @@ $table-border             : 1px solid $table-border-color;
 $table-background         : $body-color;
 $table-header-color       : lighten($table-background, 10);
 $table-hover-color        : darken($table-background, 2);
-$table-stripe-color       : darken($table-background, 4);
-$table-stripe-color-hover : darken($table-stripe-color, 5);
+$table-stripe-color       : darken($table-background, 8);
+$table-stripe-color-hover : darken($table-stripe-color, 10);
 
 $facebook-color           : #3b5998;
 $flickr-color             : #ff0084;
@@ -76,3 +76,7 @@ $small                    : "only screen and (min-width: 37.5em)";
 $medium                   : "only screen and (min-width: 48em)";
 $large                    : "only screen and (min-width: 62em)";
 $x-large                  : "only screen and (min-width: 86.375em)";
+
+/* Fluid type */
+$min-vw: 320px !default;
+$max-vw: 1280px !default;

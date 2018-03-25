@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+table {
+  @include fluid-type($min-vw, $max-vw, 12px, 18px);
+  width: 100%;
+  border-collapse: collapse;
+  /* For Firefox to horizontally scroll wider tables */
+  // scss-lint:disable DuplicateProperty
+  word-break: normal;
+  word-break: keep-all;
+}
+
+tbody {
+    tr:hover > td, tr:hover > th {
+        background-color: $table-hover-color;
+        border-top: 1px solid $table-stripe-color-hover;
+        border-bottom: 1px solid $table-stripe-color-hover;        
+    }
+}
+
+thead {
+    tr:first-child td {
+        border-bottom: 2px solid $table-border-color;
+    }
+}
+
+th, tfoot {
+  font-weight: bold;
+  font-family: $heading-font;
+  text-align: left;
+  background-color: $table-header-color;
+  border-bottom: 1px solid darken($table-stripe-color, 35%);  
+}
+
+td {
+  border-bottom: 1px solid $table-stripe-color;
+  a {
+    &:after {
+        font-family: 'FontAwesome';
+        content: '\f08e';
+        padding-left: 5px;
+        font-size: 0.75rem;
+    } 
+  }
+}
+
+tr,
+td,
+th {
+  padding: 0.3em;
+  vertical-align: middle;
+}
