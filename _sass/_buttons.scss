@@ -11,23 +11,84 @@
   margin-bottom: 20px;
   padding: 6px 15px;
   @include font-size(20);
-  background-color: $black;
-  color: $white;
-  border: 1px solid $black !important;
-  border-radius: $border-radius;
   outline: none !important;
-  &:visited {
-    color: $white;
+  text-align: center;
+  text-decoration: none;  
+  cursor: pointer;
+  
+  /* button colors */
+  $buttoncolors: (primary, $primary-color),  (inverse, #fff),
+     (light-outline, transparent),  (success, $success-color),
+     (warning, $warning-color),  (danger, $danger-color),  (info, $info-color),
+     (facebook, $facebook-color),  (twitter, $twitter-color),
+     (google-plus, $google-plus-color),  (linkedin, $linkedin-color),
+     (reddit, $reddit-color);
+
+  @each $buttoncolor, $color in $buttoncolors {
+    &--#{$buttoncolor} {
+      @include yiq-contrasted($color);
+      @if ($buttoncolor == inverse) {
+        background-color: $black;
+        color: $white;          
+        border: 1px solid $black !important;
+      }
+      @if ($buttoncolor == light-outline) {
+        border: 1px solid #fff;
+      }
+
+      &:hover {
+        @include yiq-contrasted(mix(#000, $color, 20%));
+      }
+
+      &:visited {
+        // @include yiq-contrasted($color);
+      }
+    }
   }
 
-  &:hover {
-    background-color: $white;
-    color: $black;
+  /* fills width of parent container */
+  &--block {
+    display: block;
+    width: 100%;
+
+    + .btn--block {
+      margin-top: 0.25em;
+    }
+  }
+
+  /* disabled */
+  &--disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    box-shadow: none;
+    opacity: 0.65;
+  }
+
+  /* extra large button */
+  &--x-large {
+    font-size: 2em;
+  }
+
+  /* large button */
+  &--large {
+    font-size: 1.5em;
+  }
+
+  /* small button */
+  &--small {
+    font-size: 0.75em;
   }
 }
 
-a.btn:after {
-  content: '' !important;
+a.btn {
+  &:after {
+    content: '' !important;
+  }
+}
+
+.btn p > a {
+  border: none;
 }
 
 .disabled-btn {
@@ -38,9 +99,7 @@ a.btn:after {
   @include opacity(0.7);
 }
 
-/*
-   Close button
-   ========================================================================== */
+/* Close button */
 
 .close-btn {
   position: absolute;
