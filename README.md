@@ -32,6 +32,7 @@ For details on theme extensions, visit [theme-setup](http://themicronaut.github.
 * Author's bio-photo adaptation
 * Images & Figcaptions
 * Footer content
+* HTML compression
 
 For details on theme modifications, visit [theme-setup](http://themicronaut.github.io/theme-setup/#alehs-customizations)
 

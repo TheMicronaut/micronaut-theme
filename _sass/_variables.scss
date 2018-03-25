@@ -63,6 +63,13 @@ $soundcloud-color         : #ff3a00;
 $lastfm-color             : #c3000c;
 $github-color             : #000000;
 
+
+$primary-color            : #000 !default;
+$success-color            : #62c462 !default;
+$warning-color            : #f89406 !default;
+$danger-color             : #ee5f5b !default;
+$info-color               : #52adc8 !default;
+
 // MEDIA QUERIES ==============================================
 $micro                    : "only screen and (min-width: 30em)";
 $small                    : "only screen and (min-width: 37.5em)";

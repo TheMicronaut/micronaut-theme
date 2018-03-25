@@ -26,6 +26,10 @@
   }
 }
 
+a.btn:after {
+  content: '' !important;
+}
+
 .disabled-btn {
   pointer-events: none;
   background-color: $white;
