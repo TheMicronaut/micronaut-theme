@@ -302,11 +302,3 @@ kbd {
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 2px #fff;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 2px #fff;
 }
-
-
-// Global Transition
-// ---------------------------------------------------
-
-b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, .highlight {
-	@include transition(all 0.2s ease);
-}
