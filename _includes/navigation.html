@@ -27,10 +27,11 @@
             </div><!-- /gn-scroller -->
         </nav>
     </li>
-    {% if page.categories[0] %}<li><a href="{{ site.baseurl }}/{{ page.categories[0] }}">{{ page.categories[0] }}</a></li>
+    {% assign primaryCategory = page.categories[0] %}
+    {% if primaryCategory %}<li><a href="{{ site.baseurl }}/{{ primaryCategory }}">{{ primaryCategory }}</a></li>
     {% elsif page.collection and page.collection != 'posts' %}<li><a class="codrops-icon fa-list-alt" href="{{ site.baseurl }}/{{ page.collection }}" title="Go to all {{ page.collection }}" rel=""><span>{{ page.collection }}</span></a></li>
     {% endif %} 
-    {% if page.layout == "archivepage" %}<li><a class="codrops-icon fa-rss" href="{{ site.baseurl }}/feed.{{ page.categories[0] }}.xml" target="_blank" title="{{ page.categories[0] }} rss" rel="rss"><span>Subscribe</span></a></li>{% endif %}
+    {% if primaryCategory %}<li><a class="codrops-icon fa-rss" href="{{ site.baseurl }}/feed.{{ primaryCategory }}.xml" target="_blank" title="{{ primaryCategory }} rss" rel="rss"><span>Subscribe</span></a></li>{% endif %}
     {% if page.previous %}<li><a class="codrops-icon fa-long-arrow-left" href="{{ site.baseurl }}{{ page.previous.url }}" title="{{ page.previous.title }}" rel="prev"><span>Previous</span></a></li>{% endif %}
     {% if page.next %}<li><a class="codrops-icon gn-icon-next" href="{{ site.baseurl }}{{ page.next.url }}" title="{{ page.next.title }}" rel="next"><span>Next</span></a></li>{% endif %}
     {% if page.url != "/" %}<li><a class="codrops-icon fa-home" href="{{ site.baseurl }}/"><span>Home</span></a></li>{% endif %}
