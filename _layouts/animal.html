@@ -1,0 +1,27 @@
+---
+layout: page
+---
+<article class="animal">
+
+  {% if page.image.thumbnail %}
+    {% assign imageUrl = 'https://' | append: page.image.thumbnail %}
+    <figure>
+        <a href="{{ imageUrl }}"><img src="{{ imageUrl }}" alt="Photo of a {{ page.title | downcase }}"></a>
+        {% if page.image.credit %}
+        <figcaption><a href="{{ imageUrl }}" title="{{ imageUrl }}">Credits: {{ page.image.credit }}</a></figcaption>
+        {% endif %}
+    </figure>
+  {% endif %}
+
+  <ul>
+    <li>Class   : {{ page.class }}</li>
+    <li>Family  : {{ page.family }}</li>
+  </ul>
+  
+  <h5>Description</h5>
+  
+  <div>
+    {{ content }}
+  </div>
+  
+</article>

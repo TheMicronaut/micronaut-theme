@@ -1,0 +1,62 @@
+{% assign documentCollection = include.collection %}
+{% if documentCollection %}
+  {% assign entries = site[documentCollection] %}
+{% else %}
+  {% assign entries = '' | split: '' %}
+  {% for postEntry in include.postlist %}
+    {% for post in site.posts %}
+        {% if post.url contains postEntry.url %}
+            {% assign entries = entries | push: post %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+
+{% if include.sort_by == 'title' %}
+  {% if include.sort_order == 'reverse' %}
+    {% assign entries = entries | sort: 'title' | reverse %}
+  {% else %}
+    {% assign entries = entries | sort: 'title' %}
+  {% endif %}
+{% elsif include.sort_by == 'date' %}
+  {% if include.sort_order == 'reverse' %}
+    {% assign entries = entries | sort: 'date' | reverse %}
+  {% else %}
+    {% assign entries = entries | sort: 'date' %}
+  {% endif %}
+{% endif %}
+
+<ul class="blockGroup-list">
+{% for entry in entries %}
+    {% if entry.id %}{% assign entryTitle = entry.title | markdownify | strip_html %}
+    {% else %}{% assign entryTitle = entry.title %}
+    {% endif %}
+      <li class="simpleblock">
+        <div class="postArticle-wrapper">
+          <article class="postArticle postArticle--short">
+            {% if entry.image %}
+                {% if entry.image.thumbnail %}
+                    {% assign imageURLType = entry.image.thumbnail | slice: 0 %}
+                    {% if imageURLType == "/" %}
+                        {% assign imageUrl = site.external_data_url | append: entry.image.thumbnail %}
+                    {% else %}
+                        {% assign imageUrl = 'https://' | append: entry.image.thumbnail %}
+                    {% endif %}
+                {% elsif entry.image.feature %}
+                    {% assign imageUrl = site.url | append:'/images/' | append: entry.image.feature %}
+                {% endif %}
+            {% else %}
+                {% assign imageUrl = site.url | append:'/images/' | append: site.logo %}
+            {% endif %}
+            <a href="{{ entry.url }}" target=”_blank”>
+              <div class="postArticle-image desaturate" style="background-image:url('{{ imageUrl }}')">
+              </div>
+            </a>
+            <a class="postArticle-title" href="{{ entry.url }}" target=”_blank”>{{ entryTitle }}</a>
+          </article>
+          <div class="block-postMeta">{{ entry.excerpt | remove: '\[ ... \]' | remove: '\( ... \)' | markdownify | strip_html | strip_newlines | escape_once | truncatewords:10 }}</div>
+        </div>
+      </li>
+{% endfor %}
+</ul>
