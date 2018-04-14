@@ -1,0 +1,22 @@
+<!-- Pagination links -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | replace: 'index.html', '/' | replace: '//', '/' }}" class="btn btn--inverse non-selectable" style="font-size: 15pt"><i class="fa fa-angle-double-left"></i>  Page {{ paginator.previous_page }}</a>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+  {% if page == paginator.page %}
+    <span class="btn btn--inverse non-selectable" style="background-color: #fff; color: #000;">{{ page }}</span>
+  {% elsif page == 1 %}
+    <a href="{{ site.url }}" class="btn btn--inverse non-selectable">{{ page }}</a>
+  {% else %}
+    <a href="{{ site.paginate_path | replace: ':num', page }}" class="btn btn--inverse non-selectable">{{ page }}</a>
+  {% endif %}
+  {% endfor %}
+  
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | replace: 'index.html', '/' | replace: '//', '/' }}" class="btn btn--inverse non-selectable">Page {{ paginator.next_page }}   <i class="fa fa-angle-double-right"></i></a>
+  {% endif %}
+</div>
+{% endif %}

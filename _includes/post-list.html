@@ -12,19 +12,34 @@
   {% assign nextLevel = 0 | plus: 1 %}
 {% endif %}
 
+{% assign entriesCategory = include.taxonomy %}
+{% if entriesCategory %}
+  {% assign entries = site.categories[entriesCategory] %}
+{% else %}
+  {% assign entries = '' | split: '' %}
+  {% for postEntry in include.postlist %}
+    {% for post in site.posts %}
+        {% if post.url contains postEntry.url %}
+            {% assign entries = entries | push: post %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+
 <ul class="post-list">
-{% for post in site.categories[include.taxonomy] %}
-  {% assign title = post.title | markdownify | strip_html %} 
+{% for entry in entries %}
+  {% assign title = entry.title | markdownify | strip_html %} 
   <li>
     <article>
-		<a href="{{ post.url }}">{{ title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a>
+		<a href="{{ entry.url }}">{{ title }} <span class="entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%B %d, %Y" }}</time></span></a>
 	</article>
     <footer>
-      {% if post.categories[nextLevel] %}{% assign subcategory = post.categories[nextLevel] %}{% else %}{% assign subcategory = post.categories[level] %}{% endif %}
+      {% if include.taxonomy and entry.categories[nextLevel] %}{% assign subcategory = entry.categories[nextLevel] %}{% else %}{% assign subcategory = entry.categories[level] %}{% endif %}
       <span title="{{ subcategory }} subcategory"><i class="fa fa-edit"></i>&nbsp;<a href="/{{ subcategory }}" title="Posts in {{ subcategory }} category">{{ subcategory }}</a></span>
-      <span>{% capture readtime %}{{ post.content | number_of_words | plus:91 | divided_by:150.0 | append:'.' | split:'.' | first }}{% endcapture %}<i class="fa fa-clock-o"></i>&nbsp;{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. reading</span>
-      <span>{% if post.tags %}<i class="fa fa-tags"></i>&nbsp;{% endif %}{% for tag in post.tags %}<a href="/tags/#{{ tag }}" title="Posts tagged {{ tag }}">{{ tag }}</a>{% unless forloop.last %}&nbsp;·&nbsp;{% endunless %}{% endfor %}</span>
-      <span class="excerpt">{{ post.excerpt | remove: '\[ ... \]' | remove: '\( ... \)' | markdownify | strip_html | strip_newlines | escape_once | truncatewords:125 }}</span>
+      <span title="{{ entry.content | number_of_words }} words">{% capture readtime %}{{ entry.content | strip_html | number_of_words | plus:91 | divided_by:150.0 | append:'.' | split:'.' | first }}{% endcapture %}<i class="fa fa-clock-o"></i>&nbsp;{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. reading</span>
+      <span>{% if entry.tags %}<i class="fa fa-tags"></i>&nbsp;{% endif %}{% for tag in entry.tags %}<a href="/tags/#{{ tag }}" title="Posts tagged {{ tag }}">{{ tag }}</a>{% unless forloop.last %}&nbsp;·&nbsp;{% endunless %}{% endfor %}</span>
+      <span class="excerpt">{{ entry.excerpt | remove: '\[ ... \]' | remove: '\( ... \)' | markdownify | strip_html | strip_newlines | escape_once | truncatewords:125 }}</span>
     </footer>
   </li>
 {% endfor %}
