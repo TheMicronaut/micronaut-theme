@@ -46,6 +46,8 @@ $table-hover-color        : darken($table-background, 2);
 $table-stripe-color       : darken($table-background, 8);
 $table-stripe-color-hover : darken($table-stripe-color, 10);
 
+$quote_background_color   : #fff;
+
 /* YIQ color contrast */
 $yiq-contrasted-dark-default    : #000 !default;
 $yiq-contrasted-light-default   : #fff !default;

@@ -448,7 +448,7 @@ Here is an example of a YAML front-matter:
 ```yaml
 ---
  xmldata: 
-  data: /xmldata/albums2016.xml
+  data: /xmldata/albums/albums2016.xml
   template: timelinetemplate
 ---
 ```
@@ -464,7 +464,7 @@ This is the official rendering of a `blockquote`  by the so-simple theme:
 
 > &ldquo; This is a blockquote &rdquo;
 >
-> -- <cite>Aleh</cite>
+> <cite>Aleh</cite>
  
  Note that one has to manually add the quotation characters. There is a reasoning behind this, and I assume this is because of the `cite` mess (should be outside the quotations). The current implementation is satisfactory and thus no modifications are done for blockquotes. Next to the blockquotes, this modified theme supports the central-quote element which can be used as following:
 

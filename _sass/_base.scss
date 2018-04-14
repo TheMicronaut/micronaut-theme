@@ -238,31 +238,26 @@ table {
 
 blockquote {
 	font-family: $quote-font;
-	//font-style: italic;
 	@include font-size(16);
-	padding-left: 10px;
-	border-left: 2px solid $black;
+    margin-right: 0;
+    margin-left: 0;    
+	padding: 2em 3em;
+    background-color: $quote_background_color;
+	border-left: solid 0.5em #34374C;
 }
 
-/* for the moment, keep disabled...
-blockquote > p:first-child {
-    text-indent:-16px;
+blockquote, q {
+
+  footer, cite {
+    font-size: 85%;
+    font-style: normal;
+
+    &::before {
+      padding-right: 0.25rem;
+      content: "\2014";
+    }
+  }
 }
-blockquote > p:first-child:before {
-    content:"\201C"; 
-    line-height:1px; 
-    padding-right:.1.8em; 
-	font-size: 1.8rem !important;
-}
-blockquote > p:last-child:after {
-    content:"\201D"; 
-    line-height:1px; 
-    margin-left:-.05em; 
-	font-size: 1.8rem !important;
-}
-*/
-//* html blockquote * {text-indent:-6px;} 
-/* fix IE6 */
 
 // Code
 // --------------------------------------------------
