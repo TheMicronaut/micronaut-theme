@@ -2,7 +2,7 @@
 layout: page
 title: BLOG
 categories: [blog]
-permalink: '/blog'
+permalink: '/blog/'
 search_omit: true
 hidelogo: true
 ---

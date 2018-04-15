@@ -2,7 +2,7 @@
 layout: page
 title: STORIES
 categories: [stories]
-permalink: '/stories'
+permalink: '/stories/'
 search_omit: true
 hidelogo: true
 ---

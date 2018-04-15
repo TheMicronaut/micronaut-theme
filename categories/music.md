@@ -2,7 +2,7 @@
 layout: page
 title: MUSIC
 categories: [music]
-permalink: '/music'
+permalink: '/music/'
 search_omit: true
 hidelogo: true
 ---
