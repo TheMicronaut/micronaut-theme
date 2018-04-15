@@ -39,7 +39,7 @@ td {
   a {
     &:after {
         font-family: 'FontAwesome';
-        content: '\f08e';
+        content: $fa-var-external-link;
         padding-left: 5px;
         font-size: 0.75rem;
     } 
