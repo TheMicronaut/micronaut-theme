@@ -1,14 +1,14 @@
----
-sitemap: false
----
 <?xml version="1.0" encoding="UTF-8"?>
+{%- assign category = include.taxonomy -%}
+{%- assign entries = include.postlist -%}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>{{ site.name | xml_escape }} - Music</title>
-		<description>Posts categorized as 'music'</description>
-		<link>{{ site.url }}</link>
-		<atom:link href="{{ site.url }}/feed.music.xml" rel="self" type="application/rss+xml" />
-		{% for post in site.categories.music limit:30 %}
+		<title>{{ site.title | xml_escape }} - {{ category }}</title>
+		<description>Posts in {{ category }} category</description>
+		<link href="{{ site.url }}/{{ category }}"/>
+		<atom:link href="{{ site.url }}/feed.{{ category }}.xml" rel="self" type="application/rss+xml" />
+        <category term="{{ category }}"/>
+		{% for post in entries limit:40 %}
 			<item>
 				<title type="html"><![CDATA[{{ post.title | cdata_escape }}]]></title>
 				<link rel="alternate" type="text/html" href="{{ site.url }}{{ post.url }}" />				

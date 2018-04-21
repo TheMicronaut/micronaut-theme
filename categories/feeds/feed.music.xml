@@ -1,0 +1,5 @@
+---
+permalink: /feed.music.xml
+sitemap: false
+---
+{% include category-feed.xml postlist=site.categories.music taxonomy='music' %}

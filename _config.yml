@@ -26,6 +26,8 @@ plugins:
   - jekyll-paginate
   - jemoji
 
+collections_dir: docs
+  
 # Add you collections here. Remove the 'animals' collection in your site.
 collections:
   animals:

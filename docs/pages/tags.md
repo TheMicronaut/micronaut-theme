@@ -4,6 +4,7 @@ title: Tag Index
 excerpt: "An list of posts sorted by tag."
 hidelogo: true
 search_omit: true
+permalink: /tags/
 ---
 <figure>
     <img src="/images/tags.png" alt="tags-Image" class="center non-selectable"/>

@@ -3,6 +3,7 @@ layout: page
 title: Theme Setup
 excerpt: "Instructions on how to install and customize the Jekyll theme So Simple, including modifications and customizations by Aleh"
 modified: 2016-07-01T11:30:41.231140-04:00
+permalink: /theme-setup/
 search_omit: true
 mathjax: true
 image:
@@ -448,14 +449,14 @@ Here is an example of a YAML front-matter:
 ```yaml
 ---
  xmldata: 
-  data: /xmldata/albums/albums2016.xml
+  data: /docs/xmldata/albums/albums2016.xml
   template: timelinetemplate
 ---
 ```
 
 where, *data* is the local path for the xml data and *template* is the id of the template (defined in file: `_includes\templates\xmltemplates.xml`).
  
-See a [live demo](/music/new-albums-2016/){:target="_blank"} of this feature. In this demo, the XML data is rendered as [timeline](#the-timeline) items.
+See a [live demo](/music/new-albums-2018/){:target="_blank"} of this feature. In this demo, the XML data is rendered as [timeline](#the-timeline) items.
  
 Since I haven't tested this feature for other templates other than my own, I would be very delighted to receive your suggestions for improvements.
  

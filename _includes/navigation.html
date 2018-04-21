@@ -9,29 +9,35 @@
         <nav role="navigation" class="gn-menu-wrapper">
             <div class="gn-scroller">
                 <ul class="gn-menu">
-                <!-- example -->
+                <!-- submenu example -->
                 <!--<li>
                         <a class="gn-icon fa-{{ link.icon }}" href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a>
                         <ul class="gn-submenu">
                             <li><a class="gn-icon gn-icon-illustrator">Illustrations</a></li>
                             <li><a class="gn-icon gn-icon-photoshop">Photoshop files</a></li>
                         </ul>
-                    </li>
-                -->
+                    </li>-->
                   {% for link in site.data.navigation %}
                     {% if link.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = site.baseurl %}{% endif %}
                     <li><a class="gn-icon fa-{{ link.icon }}" href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
                   {% endfor %}
                   <li><a class="gn-icon fa-rss" href="{{ site.baseurl }}/feed.xml" title="Atom/RSS feed">Feed</a></li>
                 </ul>
-            </div><!-- /gn-scroller -->
+            </div>
         </nav>
     </li>
-    {% assign primaryCategory = page.categories[0] %}
+    {%- assign primaryCategory = page.categories[0] -%}
+    {%- assign categoryFeed = 'feed.' | append: primaryCategory | append: '.xml' -%}
+    {% for feed in site.pages %}
+      {% if feed.path contains categoryFeed %}
+        {%- assign primaryCategoryFeed = categoryFeed -%}
+        {%- break -%}
+      {% endif %}
+    {% endfor %}    
     {% if primaryCategory %}<li><a href="{{ site.baseurl }}/{{ primaryCategory }}">{{ primaryCategory }}</a></li>
     {% elsif page.collection and page.collection != 'posts' %}<li><a class="codrops-icon fa-list-alt" href="{{ site.baseurl }}/{{ page.collection }}" title="Go to all {{ page.collection }}" rel=""><span>{{ page.collection }}</span></a></li>
     {% endif %} 
-    {% if primaryCategory %}<li><a class="codrops-icon fa-rss" href="{{ site.baseurl }}/feed.{{ primaryCategory }}.xml" target="_blank" title="{{ primaryCategory }} rss" rel="rss"><span>Subscribe</span></a></li>{% endif %}
+    {% if primaryCategoryFeed %}<li><a class="codrops-icon fa-rss" href="{{ site.baseurl }}/{{ primaryCategoryFeed }}" target="_blank" title="{{ primaryCategory }} rss feed" rel="rss"><span>Subscribe</span></a></li>{% endif %}
     {% if page.previous %}<li><a class="codrops-icon fa-long-arrow-left" href="{{ site.baseurl }}{{ page.previous.url }}" title="{{ page.previous.title }}" rel="prev"><span>Previous</span></a></li>{% endif %}
     {% if page.next %}<li><a class="codrops-icon gn-icon-next" href="{{ site.baseurl }}{{ page.next.url }}" title="{{ page.next.title }}" rel="next"><span>Next</span></a></li>{% endif %}
     {% if page.url != "/" %}<li><a class="codrops-icon fa-home" href="{{ site.baseurl }}/"><span>Home</span></a></li>{% endif %}

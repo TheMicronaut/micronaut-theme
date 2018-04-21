@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Search"
+permalink: /search/
 date: 
 modified:
 excerpt:

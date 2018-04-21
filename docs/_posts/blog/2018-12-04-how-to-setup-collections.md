@@ -16,7 +16,7 @@ Collections is a very handy jekyll feature. It helps
 
 In the following we shall describe the steps required in order to create a Jekyll collection. We have created [a collection of animals](/animals){:target="_blank"} for demo purposes.
 
-####   1. In the <kbd>collections</kbd> folder, create a markdown file and give it any name you like, preferably same as your collection name (e.g. <kbd>animals.md</kbd>).
+####   1. In the <kbd>/docs/collections/</kbd> folder, create a markdown file and give it any name you like, preferably same as your collection name (e.g. <kbd>animals.md</kbd>).
 
 This file is meant to aggregate and present all collection items.
 
@@ -27,7 +27,7 @@ In its yaml front-matter, specify the layout as <kbd>collection</kbd>, and decla
 layout: collection
 collection: "animals"
 title: "A collection of animals"
-permalink: "/animals/"
+permalink: /animals/
 ---    
 ```
 
@@ -36,7 +36,7 @@ permalink: "/animals/"
 
 You may add any additional content you like, which will be displayed before the list of items.
 
-####   2. Create a folder immediately under the root folder, and name it as per your collection name prefixed with underscore (e.g. <kbd>_animals</kbd>).
+####   2. Create a folder inside the documents (docs) folder and name it as per your collection name prefixed with underscore (e.g. <kbd>_animals</kbd>).
 
 This folder is where the collection files (.md) should be stored (each file corresponds to an individual collection item).
 

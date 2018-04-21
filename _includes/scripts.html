@@ -188,7 +188,8 @@ function RenderEmbeddedTimeline(xml) {
         initial_zoom: 2,
         duration: 600,
         //slide_padding_lr: 90,
-        hash_bookmark: true
+        hash_bookmark: true,
+        ga_property_id: '{{ site.owner.google.analytics }}'
       }	
     timeline = new TL.Timeline('timeline-js', jsonItems, additionalOptions);
     return counter;
