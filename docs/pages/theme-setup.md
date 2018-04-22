@@ -64,7 +64,7 @@ bundle exec jekyll serve
 How So Simple is organized and what the various files are. All posts, layouts, includes, stylesheets, assets, and whatever else is grouped nicely under the root folder. The compiled Jekyll site outputs to `_site/`.
 
 ```bash
-so-simple-theme/
+modified-so-simple-theme/
 ├── _includes/
 |    ├── browser-upgrade.html   # prompt to install a modern browser for < IE9
 |    ├── disqus-comments.html   # Disqus comments script
@@ -75,26 +75,28 @@ so-simple-theme/
 |    ├── open-graph.html        # meta data for Open Graph and Twitter cards
 |    └── scripts.html           # site scripts
 ├── _layouts/
-|    ├── page.html               # single column page layout
-|    └── post.html               # main content with sidebar for author/post details
-├── _posts/                      # MarkDown formatted posts
-├── _sass/                       # Sass stylesheets
-├── about/                       # sample about page
-├── articles/                    # sample articles category page
+|    ├── compress.html          # format-less layout that compresses html
+|    ├── page.html              # single column page layout (derives from compress layout)
+|    ├── post.html              # single column post layout (derives from compress layout)
+|    ├── collection.html        # layout for collection pages (derives from page layout)
+|    └── home.html              # layout for home pages (derives from page layout)
+├── docs/                       # documents folder (incl. posts, pages, collections, xmldata)
+|    ├── _posts/                # markdown formatted posts
+|    ├── pages                  # markdown formatted pages (e.g. about, search, tags, e.t.c.)
+|    ├── collections            # markdown formatted collection pages
+|    └── xmldata                # xml data to be loaded dynamically (e.g. via timelines)
+├── _sass/                      # sass stylesheets
 ├── assets/
-|    ├── css/                    # compiled stylesheets
-|    ├── fonts/                  # webfonts
+|    ├── css/                   # compiled stylesheets
+|    ├── fonts/                 # webfonts
 |    └── js/
-|        ├── _main.js            # main JavaScript file, plugin settings, etc
-|        ├── plugins/            # scripts and jQuery plugins to combine with _main.js
-|        ├── scripts.min.js      # concatenated and minified _main.js + plugin scripts
-|        └── vendor/             # vendor scripts to leave alone and load as is
-├── blog/                        # sample blog category page
-├── images/                      # images for posts and pages
-├── 404.md                       # 404 page
-├── feed.xml                     # Atom feed template
-├── index.md                     # sample homepage. lists 5 latest posts 
-└── theme-setup/                 # theme setup page. safe to remove
+|        ├── _main.js           # main JavaScript file, plugin settings, etc
+|        ├── plugins/           # scripts and jQuery plugins to combine with _main.js
+|        ├── scripts.min.js     # concatenated and minified _main.js + plugin scripts
+|        └── vendor/            # vendor scripts to leave alone and load as is
+├── images/                     # images for posts and pages
+├── feed.xml                    # Atom feed template
+├── index.md                    # sample homepage. lists 5 latest posts 
 ```
 
 ---
