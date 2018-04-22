@@ -24,7 +24,7 @@ layout: compress
     <div class="entry-wrapper">
       <header class="entry-header">
         <ul class="entry-tags">
-         {% if page.tags %}<i class="fa fa-tags"></i>&nbsp;{% endif %}{% for tag in page.tags %}<li><a href="{{ site.url }}/tags/#{{ tag }}" title="Pages tagged {{ tag }}">{{ tag }}</a></li>{% endfor %}
+         {% if page.tags[0] %}<i class="fa fa-tags"></i>&nbsp;{% endif %}{% for tag in page.tags %}<li><a href="{{ site.url }}/tags/#{{ tag }}" title="Pages tagged as {{ tag }}">{{ tag }}</a></li>{% endfor %}
         </ul>
         {% if page.link %}
           <h1 class="entry-title"><a href="{{ page.link }}">{% if page.headline %}{{ page.headline }}{% else %}{{ title }}{% endif %} <span class="link-arrow">&rarr;</span></a></h1>

@@ -38,7 +38,7 @@
       {% if include.taxonomy and entry.categories[nextLevel] %}{% assign subcategory = entry.categories[nextLevel] %}{% else %}{% assign subcategory = entry.categories[level] %}{% endif %}
       <span title="{{ subcategory }} subcategory"><i class="fa fa-edit"></i>&nbsp;<a href="/{{ subcategory }}" title="Posts in {{ subcategory }} category">{{ subcategory }}</a></span>
       <span title="{{ entry.content | number_of_words }} words">{% capture readtime %}{{ entry.content | strip_html | number_of_words | plus:91 | divided_by:150.0 | append:'.' | split:'.' | first }}{% endcapture %}<i class="fa fa-clock-o"></i>&nbsp;{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. reading</span>
-      <span>{% if entry.tags %}<i class="fa fa-tags"></i>&nbsp;{% endif %}{% for tag in entry.tags %}<a href="/tags/#{{ tag }}" title="Posts tagged {{ tag }}">{{ tag }}</a>{% unless forloop.last %}&nbsp;·&nbsp;{% endunless %}{% endfor %}</span>
+      <span>{% if entry.tags[0] %}<i class="fa fa-tags"></i>&nbsp;{% endif %}{% for tag in entry.tags %}<a href="/tags/#{{ tag }}" title="Posts tagged as {{ tag }}">{{ tag }}</a>{% unless forloop.last %}&nbsp;·&nbsp;{% endunless %}{% endfor %}</span>
       <span class="excerpt">{{ entry.excerpt | remove: '\[ ... \]' | remove: '\( ... \)' | markdownify | strip_html | strip_newlines | escape_once | truncatewords:125 }}</span>
     </footer>
   </li>
