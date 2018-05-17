@@ -58,11 +58,7 @@
   /* post excerpt */
   .excerpt {
     display: block;
-    float: none;
-    font-family: $base-font;
     text-transform: none;
-    margin-top: 5px;
-    @include font-size(16, no, 20);
   }
 }
 

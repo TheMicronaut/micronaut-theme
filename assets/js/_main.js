@@ -1,10 +1,5 @@
 /*! Plugin options and other jQuery stuff */
 
-// FitVids options
-$(function() {
-	$("article").fitVids({ customSelector: "iframe[src^='http://bandcamp.com'], iframe[src^='http://soundcloud.com.com']"});
-});
-
 // Add lightbox class to all image links
 $("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
 
