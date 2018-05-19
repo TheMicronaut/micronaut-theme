@@ -1,6 +1,14 @@
 /* ==========================================================================
-   Notices
+   NOTICE TEXT BLOCKS
    ========================================================================== */
+
+/**
+ *  Default Kramdown usage (no indents!):
+ *  <div class="notice" markdown="1">
+ *  #### Headline for the Notice
+ *  Text for the notice
+ *  </div>
+ */
 
 @mixin notice($notice-color) {
   margin: 1.5em 0 !important; /* override*/
@@ -83,13 +91,4 @@
 
 .notice--danger {
   @include notice(mix(#fff, $danger-color, 70%));
-}
-
-/*
-   Browser upgrade notice
-   ========================================================================== */
-
-.upgrade {
-  padding: 10px;
-  text-align: center;
 }

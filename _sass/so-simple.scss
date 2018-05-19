@@ -9,7 +9,6 @@
 @import "variables";
 
 /* Vendor */
-@import "vendor/pace/pace"; /* Pace loading bar */
 @import "vendor/bourbon/bourbon"; /* Bourbon mixins (bourbon.io) */
 @import "grid-settings"; /* Bourbon Neat settings */
 @import "vendor/neat/neat"; /* Bourbon Neat grid mixins (neat.bourbon.io) */
@@ -25,13 +24,11 @@
 @import "tables";
 
 /* Components */
-
 @import "helpers";
 @import "buttons";
-@import "syntax";
+@import "syntax-highlighting";
 @import "forms";
 @import "notices"; /* notices and alerts */
-@import "animations";
 @import "masthead";
 @import "navigation";
 @import "search";
