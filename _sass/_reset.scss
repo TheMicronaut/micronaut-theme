@@ -137,7 +137,7 @@ input[type="checkbox"] {
 }
 
 input[type="search"] { // Appearance in Safari/Chrome
-  @include box-sizing(content-box);
+  box-sizing: content-box;
   -webkit-appearance: textfield;
 }
 

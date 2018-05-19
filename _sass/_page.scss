@@ -47,8 +47,8 @@ img.entry-feature-image {
 /* page header */
 
 .entry-header {
-	@include fill-parent;
-        margin-bottom: -1.1em;
+	width: 100%;
+    margin-bottom: -1.1em;
 }
 
 /* tag listing in page header */
