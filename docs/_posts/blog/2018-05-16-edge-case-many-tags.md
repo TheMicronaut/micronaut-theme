@@ -13,7 +13,7 @@ tags:
   - content
   - css
   - dowork
-  - edge case
+  - edge_case
   - embeds
   - excerpt
   - Fail

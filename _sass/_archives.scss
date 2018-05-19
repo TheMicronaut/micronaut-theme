@@ -19,7 +19,7 @@
       > article {
         font-family: $base-font;
         @include font-size(22,no,22);
-        padding-bottom: 5px;
+        padding-bottom: 0.35rem;
         border-bottom: 1px solid #aaa;
         &:hover {
             border-bottom: 1px solid darken($link-color, 30);
@@ -29,7 +29,7 @@
         text-transform: uppercase;
         font-family: $alt-font;
         font-size: 0.85rem;
-        margin: 5px 0;
+        margin-top: 0.35rem;
           & > span {
             display: inline-block;
             margin-right: 6px;
@@ -59,6 +59,8 @@
   .excerpt {
     display: block;
     text-transform: none;
+    margin-right: 0;
+    margin-top: 0.5rem;
   }
 }
 
