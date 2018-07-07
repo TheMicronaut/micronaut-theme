@@ -4,7 +4,7 @@ title: Crimson Sky
 locale: en_US
 timezone: CET
 description: Life is lovely, so I wite about.
-logo: images/image.jpeg
+logo: image.jpg
 search: true
 url: https://dizhrne.github.io
 external_data_url: # common url for images and other external data
@@ -75,7 +75,7 @@ compress_html:
 # Site owner
 owner:
   name: Crimson
-  avatar: images/image.jpeg
+  avatar: image.jpg
   email: dizhrne@gmail.com
   disqus-shortname: braidwoodinn-github-io
   github: DIZHRNE
