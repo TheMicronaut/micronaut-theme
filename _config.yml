@@ -1,12 +1,12 @@
 # Site wide configuration
 
-title: Micronaut Modified So Simple Theme
+title: Crimson Sky
 locale: en_US
 timezone: CET
-description: Theme based on So Simple Theme
+description: Software engineer and FOREX trader's blog.
 logo: site-logo.svg
 search: true
-url: #your-site-url
+url: https://dizhrne.github.io
 external_data_url: # common url for images and other external data
 
 # Jekyll configuration
@@ -74,28 +74,11 @@ compress_html:
 
 # Site owner
 owner:
-  name: Site Name
+  name: Crimson
   avatar: site-logo.png
-  email: #youremail
-  disqus-shortname: #your-disqus-shortname
-  twitter: #your-twitter-name
-  facebook: #username
-  github: #your-github-name
-  stackexchange: #http://stackoverflow.com/users/123456/username
-  linkedin: #username
-  instagram:
-    user: #instagram-username
-    userId: #instagram-userId
-    clientId: #instagram-clientId
-  flickr: #username
-  tumblr: #tumblr-name
-  pinterest: #username
-  weibo: #userid
-  soundcloud: #soundcloud-name
-  mixcloud: #mixcloud-name
-  lastfm: #username
-  tawkto:
-    siteID: #tawkto-siteID
+  email: dizhrne@gmail.com
+  disqus-shortname: braidwoodinn-github-io
+  github: DIZHRNE
   google:
     plus:
     analytics: #google-analytics-id
