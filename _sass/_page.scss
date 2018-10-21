@@ -114,6 +114,10 @@ span + .entry-title {
 	@include media($large) {
 		@include font-size(40,yes,40);
 	}
+    
+    @media print {
+      	@include font-size(40,yes,40);
+    }    
 }
 
 /* page/post wrapper */
