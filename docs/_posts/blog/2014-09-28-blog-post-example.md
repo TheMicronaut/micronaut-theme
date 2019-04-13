@@ -14,5 +14,6 @@ relatedposts:
  - url: /blog/hello-world/
  - url: /blog/mathjax-example/
  - url: /stories/author-override/
+ - url: /blog/post-link/ 
 ---
 Example of  a blog post. Logo is hidden. Related posts (defined by author in yaml front-matter) are shown in the bottom.
