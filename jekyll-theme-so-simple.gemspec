@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "tzinfo-data", "~> 1.2019.3"
   spec.add_runtime_dependency "jekyll-theme-primer", "~> 0.5.4"
   
-  spec.add_development_dependency "bundler", "~> 1.17.3"
+  spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake", ">= 12.3.3"
   spec.add_runtime_dependency "kramdown-parser-gfm", "~> 1.1.0"
 end
