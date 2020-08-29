@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
+<title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 {% if page.excerpt %}<meta name="description" content="{{ page.excerpt | strip_html }}">{% endif %}
 {% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
 {% if page.author %}{% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}{% endif %}
