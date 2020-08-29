@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
     f.match(%r{^(assets|_(data|includes|layouts|sass)/|(LICENSE|README|CHANGELOG)((\.(txt|md|markdown)|$)))}i)
   end
 
-  spec.add_runtime_dependency "jekyll", "~> 3.7.4"
+  spec.add_runtime_dependency "jekyll", "~> 3.9.0"
   spec.add_runtime_dependency "jekyll-paginate", "~> 1.1.0"
   spec.add_runtime_dependency "jekyll-sitemap", "~> 1.4.0"
   spec.add_runtime_dependency "jekyll-gist", "~> 1.5.0"
@@ -28,5 +28,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-theme-primer", "~> 0.5.4"
   
   spec.add_development_dependency "bundler", "~> 1.17.3"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rake", ">= 12.3.3"
+  spec.add_runtime_dependency "kramdown-parser-gfm", "~> 1.1.0"
 end
