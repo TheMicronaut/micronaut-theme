@@ -18,12 +18,12 @@ See a [live version](http://mmistakes.github.io/so-simple-theme/) of the origina
 | TimelineJS Integration | [Preview][timelineJS-preview] | [Source][timelineJS-source] |
 
 [html-elements-and-formatting]: docs/_posts/blog/2015-08-11-markup-html-elements-and-formatting.md
-[code-highlighting-post]: : docs/_posts/stories/2013-08-16-code-highlighting-post.md
+[code-highlighting-post]: docs/_posts/stories/2013-08-16-code-highlighting-post.md
 [image-alignment]: docs/_posts/blog/2018-01-10-markup-image-alignment.md
 [timelineJS-preview]: https://themicronaut.github.io/music/albums/2018/
 [timelineJS-source]: docs/_posts/music/2017-01-24-timelinejs-example.md
 
-## Notable Extensions of the So Simple Theme:
+## Notable Extensions of the original So Simple Theme:
 * Timelines (with automatic loading of data from XML) 
 * Central quotes
 * Text divider
@@ -35,7 +35,7 @@ See a [live version](http://mmistakes.github.io/so-simple-theme/) of the origina
 
 For details on theme extensions, visit [theme-setup](http://themicronaut.github.io/theme-setup/#alehs-customizations)
 
-## Notable Modifications of the So Simple Theme:
+## Notable Modifications of the original So Simple Theme:
 * New Navigation bar
 * Typography
 * Author's bio-photo adaptation
