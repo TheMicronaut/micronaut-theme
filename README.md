@@ -2,20 +2,29 @@
 
 Micronaut's modified So Simple Theme is based upon the  simplistic **So Simple Theme**  originally created by [Michael Rose](http://mademistakes.com).
 
-Micronaut's modified So Simple Theme is a minimalistic theme (across the same lines of the So Simple Theme) that offers simple and clean layout while emphasizing typography. Thus, the theme is ideal for sites and blogs that focus on content rather than on visual delights.
+Micronaut's modified So Simple Theme is a minimalistic theme (across the same lines of the So Simple Theme) that offers simple and clean layout while emphasizing typography. This theme is ideal for storytelling blogs.
 
 See a [live Demo](http://themicronaut.github.io/) of Micronaut's modified So Simple Theme hosted on GitHub.
 
 See a [live version](http://mmistakes.github.io/so-simple-theme/) of the original So Simple Theme hosted on GitHub.
 
-## Screenshots
-![example main page](https://raw.githubusercontent.com/TheMicronaut/micronaut-theme/master/images/main-page.png)
-![example post1](https://raw.githubusercontent.com/TheMicronaut/micronaut-theme/master/images/example-post1.png)
-![example post2](https://raw.githubusercontent.com/TheMicronaut/micronaut-theme/master/images/example-post2.png)
+## Sample Pages
+
+| Description |    |    |
+| ----------- | -- | -- |
+| Html Elements and Formatting | [Preview][html-elements-and-formatting] | [Source][html-elements-and-formatting] |
+| Code highlighting post | [Preview][code-highlighting-post] | [Source][code-highlighting-post] |
+| Image Alignment | [Preview][image-alignment] | [Source][image-alignment] |
+| TimelineJS Integration | [Preview][timelineJS-preview] | [Source][timelineJS-source] |
+
+[html-elements-and-formatting]: docs/_posts/blog/2015-08-11-markup-html-elements-and-formatting.md
+[code-highlighting-post]: : docs/_posts/stories/2013-08-16-code-highlighting-post.md
+[image-alignment]: docs/_posts/blog/2018-01-10-markup-image-alignment.md
+[timelineJS-preview]: https://themicronaut.github.io/music/albums/2018/
+[timelineJS-source]: docs/_posts/music/2017-01-24-timelinejs-example.md
 
 ## Notable Extensions of the So Simple Theme:
-* Timeline
-* XML data loading and rendering
+* Timelines (with automatic loading of data from XML) 
 * Central quotes
 * Text divider
 * Capital Letter in paragraphs
