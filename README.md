@@ -23,6 +23,11 @@ See a [live version](http://mmistakes.github.io/so-simple-theme/) of the origina
 [timelineJS-preview]: https://themicronaut.github.io/music/albums/2018/
 [timelineJS-source]: docs/_posts/music/2017-01-24-timelinejs-example.md
 
+## Changing Typography
+Fonts and other resources can be configured in file [_variables.scss][font-configuration]. Fonts need to be properly linked in file _includes/head.html
+
+[font-configuration]: _sass/_variables.scss
+
 ## Notable Extensions of the original So Simple Theme:
 * Timelines (with automatic loading of data from XML) 
 * Central quotes
