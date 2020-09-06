@@ -6,10 +6,6 @@
   margin-top: 60px;
   @include clearfix;
 
-  //@include media($medium) {
-  //  margin-top: 0;
-  //}
-
   .wrap {
     text-align: center;
     max-width: em(440);
@@ -40,11 +36,10 @@
     width: 100px;
     height: 100px;
     background-color: $body-color;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-delay: .05s;
-    animation-delay: .05s;
-    border: 4px solid $white;
+    //-webkit-animation-duration: 1s;
+    //animation-duration: 1s;
+    //-webkit-animation-delay: .05s;
+    //animation-delay: .05s;
     @include rounded(100px); /* crops in a circle */
 
     @include media($medium) {
@@ -68,10 +63,10 @@
 .site-title {
   font-family: $heading-font;
   margin-bottom: 0;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-delay: .75s;
-  animation-delay: .75s;
+  //-webkit-animation-duration: 1s;
+  //animation-duration: 1s;
+  //-webkit-animation-delay: .75s;
+  //animation-delay: .75s;
 
   a {
     color: $black;
