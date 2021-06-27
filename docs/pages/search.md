@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Search"
+title: "Search this site"
 permalink: /search/
 date: 
 modified:
@@ -10,30 +10,23 @@ image:
 search_omit: true
 sitemap: false
 ---
-  
-<!-- Search form -->
-<form method="get" action="{{ site.url }}/search/" data-search-form class="simple-search">
-  <label for="q">Search {{ site.title }} for:</label>
-  <input type="search" name="q" id="q" placeholder="What are you looking for?" data-search-input id="goog-wm-qt" autofocus />
-  <input type="submit" value="Search" id="goog-wm-sb" class="btn--inverse" />
-</form>
+<!-- Html Elements for Search -->
+<div id="search-container">
+<input type="search" id="search-input" placeholder="what are you looking for?" autofocus >
+<ul class="post-list" id="results-container"></ul>
+</div>
 
-<!-- Search results placeholder -->
-<h6 data-search-found>
-  <span data-search-found-count></span> result(s) found for &ldquo;<span data-search-found-term></span>&rdquo;.
-</h6>
-<ul class="post-list" data-search-results></ul>
+<!-- Script pointing to search-script.js -->
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js" type="text/javascript"></script>
 
-<!-- Search result template -->
-<script type="text/x-template" id="search-result">
-<li>
-	<article>
-		<a href="##Url##">##Title##<span class="entry-date"><time datetime="##Date##">##Date##</time></span></a>
-	</article>
-	<footer>
-		<span><i class="fa fa-edit"></i>&nbsp;##Category##</span>
-		<span><i class="fa fa-tags"></i>&nbsp;##Tags##</span>
-		<span class="excerpt">##Excerpt##</span>				
-	</footer>
-</li>
+<!-- Configuration -->
+<script>
+SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  limit: 50,
+  json: '/search.json',
+  searchResultTemplate: '<li><article><a href="{link}">{title}<span class="entry-date"><time datetime="{date}">{date}</time></span></a></article><footer><span><i class="fa fa-edit"></i>&nbsp;{category}</span><span><i class="fa fa-tags"></i>&nbsp;{tags}</span><span class="excerpt">{excerpt}</span></footer></li>',
+  noResultsText: '<p><i>Nothing found. Try again...</i></p>'
+})
 </script>
